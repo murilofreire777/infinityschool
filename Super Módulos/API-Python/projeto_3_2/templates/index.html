@@ -1,0 +1,168 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Chat com Lobby e Múltiplas Salas</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    #login, #chat-area { max-width: 500px; margin: auto; }
+    #chat-area { display: none; }
+    #rooms { margin-bottom: 10px; }
+    #messages { list-style: none; padding: 0; height: 300px; overflow-y: scroll; border: 1px solid #ccc; }
+    #messages li { padding: 5px 10px; }
+    #input-container { display: flex; margin-top: 10px; }
+    #input { flex: 1; padding: 5px; }
+    #send { padding: 5px 10px; }
+    .room-button { margin-right: 5px; }
+    #current-room { font-weight: bold; margin-bottom: 10px; }
+  </style>
+  <script src="https://cdn.socket.io/4.5.0/socket.io.min.js"></script>
+</head>
+<body>
+  <div id="login">
+    <h2>Bem-vindo ao Chat</h2>
+    <label>Escolha um nome de usuário:</label><br />
+    <input type="text" id="username" placeholder="Digite seu nome" />
+    <button id="btn-login">Entrar</button>
+  </div>
+
+  <div id="chat-area">
+    <h3>Você está no <span id="current-room">Lobby</span></h3>
+
+    <!-- Botões para mudar de sala (incluindo Lobby) -->
+    <div id="rooms">
+      <!-- Será preenchido dinamicamente com as salas disponíveis -->
+      <button class="room-button" data-room="lobby">Lobby</button>
+    </div>
+
+    <!-- Área onde as mensagens serão exibidas -->
+    <ul id="messages"></ul>
+
+    <!-- Input para digitar mensagem -->
+    <div id="input-container">
+      <input type="text" id="input" placeholder="Digite sua mensagem" />
+      <button id="send">Enviar</button>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const socket = io();
+
+      const loginDiv    = document.getElementById('login');
+      const chatAreaDiv = document.getElementById('chat-area');
+      const usernameInp = document.getElementById('username');
+      const btnLogin    = document.getElementById('btn-login');
+
+      const roomsDiv       = document.getElementById('rooms');
+      const currentRoomLbl = document.getElementById('current-room');
+      const messagesList   = document.getElementById('messages');
+      const inputMsg       = document.getElementById('input');
+      const btnSend        = document.getElementById('send');
+
+      let username = '';
+      let currentRoom = 'lobby'; // por padrão, após login o usuário fica no ‘lobby’
+
+      // 1. Evento de login
+      btnLogin.onclick = () => {
+        const nome = usernameInp.value.trim();
+        if (!nome) {
+          alert('Por favor, coloque um nome de usuário.');
+          return;
+        }
+        username = nome;
+        // Esconde a tela de login, mostra a de chat
+        loginDiv.style.display = 'none';
+        chatAreaDiv.style.display = 'block';
+
+        // Informa ao servidor que estamos entrando no lobby
+        socket.emit('join_lobby', { username });
+      };
+
+      // 2. Recebe lista de salas disponíveis
+      socket.on('rooms_list', (data) => {
+        const rooms = data.rooms || [];
+        // Limpa div de rooms (exceto o botão “Lobby” que já existe)
+        roomsDiv.innerHTML = '';
+        // Botão para lobby
+        const btnLobby = document.createElement('button');
+        btnLobby.textContent = 'Lobby';
+        btnLobby.dataset.room = 'lobby';
+        btnLobby.classList.add('room-button');
+        roomsDiv.appendChild(btnLobby);
+
+        // Cria botão para cada sala
+        rooms.forEach(roomName => {
+          const btn = document.createElement('button');
+          btn.textContent = roomName;
+          btn.dataset.room = roomName;
+          btn.classList.add('room-button');
+          roomsDiv.appendChild(btn);
+        });
+      });
+
+      // 3. Trocar de sala ao clicar em botão
+      roomsDiv.addEventListener('click', (e) => {
+        if (e.target.tagName === 'BUTTON') {
+          const chosenRoom = e.target.dataset.room;
+          if (chosenRoom === currentRoom) return; // já está nessa sala
+
+          // Avisa ao servidor qual sala será deixada
+          if (currentRoom !== 'lobby') {
+            socket.emit('leave_room', { username, room: currentRoom });
+          } else {
+            // se estava no lobby, opcionalmente notificar saída do lobby
+            socket.emit('leave_room', { username, room: 'lobby' });
+          }
+
+          // Limpa lista de mensagens na tela
+          messagesList.innerHTML = '';
+
+          // Atualiza rótulo de sala atual no cliente
+          currentRoom = chosenRoom;
+          currentRoomLbl.textContent = (currentRoom === 'lobby') ? 'Lobby' : currentRoom;
+
+          // Emite evento para ingressar na nova sala
+          if (currentRoom === 'lobby') {
+            socket.emit('join_lobby', { username });
+          } else {
+            socket.emit('join_room', { username, room: currentRoom });
+          }
+        }
+      });
+
+      // 4. Receber mensagens enviadas pela sala atual
+      socket.on('message', (msg) => {
+        const li = document.createElement('li');
+        li.textContent = msg;
+        messagesList.appendChild(li);
+        // Autoscroll para a mensagem mais recente
+        messagesList.scrollTop = messagesList.scrollHeight;
+      });
+
+      // 5. Receber erros do servidor (e.g. sala não existe)
+      socket.on('error_message', (data) => {
+        alert(data.msg || 'Erro desconhecido.');
+      });
+
+      // 6. Enviar mensagem para a sala atual
+      btnSend.onclick = () => {
+        const text = inputMsg.value.trim();
+        if (!text) return;
+        socket.emit('send_message', {
+          username,
+          room: currentRoom,
+          message: text
+        });
+        inputMsg.value = '';
+      };
+
+      // Também enviar mensagem ao pressionar Enter
+      inputMsg.addEventListener('keyup', (e) => {
+        if (e.key === 'Enter') btnSend.click();
+      });
+    });
+  </script>
+</body>
+</html>

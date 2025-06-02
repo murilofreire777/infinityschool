@@ -1,0 +1,41 @@
+Checklist python
+
+Erros de import no VS 
+
+Ativar venv
+
+Terminal VS Code:
+
+Windows → .\venv\Scripts\Activate
+
+Linux/macOS → source venv/bin/activate
+
+Instalar o pacote
+
+bash
+Copiar
+pip install websockets
+# ou
+pip install websocket-client
+Verificar instalação
+
+bash
+Copiar
+pip list | grep websockets
+# ou
+pip show websocket-client
+Selecionar o intérprete no VS Code
+
+Ctrl+Shift+P → “Python: Select Interpreter” → escolha …/venv/bin/python (ou …\venv\Scripts\python.exe).
+
+Recarregar o VS Code
+
+Ctrl+Shift+P → “Developer: Reload Window”.
+
+Testar importação
+
+bash
+Copiar
+python -c "import websockets; print('OK')"
+# ou
+python -c "import websocket; print('OK')"
