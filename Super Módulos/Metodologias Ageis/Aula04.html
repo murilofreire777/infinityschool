@@ -2,13 +2,14 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Aula 04 – Produtividade, Governança e Gestão de Pessoas</title>
+  <title>Aula 04 – Scrum Fundamentals</title>
   <style>
     body { font-family: Arial, sans-serif; line-height: 1.6; background-color: #f5f7fa; color: #333; padding: 20px; }
     .container { max-width: 900px; margin: auto; background-color: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
     h1 { color: #2c3e50; margin-bottom: 5px; }
     h2 { color: #34495e; margin-top: 25px; border-bottom: 2px solid #ecf0f1; padding-bottom: 5px; }
     h3 { color: #4a6274; margin-top: 20px; }
+    h4 { color: #5a6b7a; margin-top: 15px; font-size: 1em; }
     ul { margin-left: 20px; }
     table { width: 100%; border-collapse: collapse; margin-top: 15px; }
     table, th, td { border: 1px solid #ccc; }
@@ -19,110 +20,143 @@
     figure img { max-width: 100%; height: auto; border-radius: 4px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
     figcaption { font-size: 0.9em; color: #555; margin-top: 5px; }
     .questoes { background-color: #eef3f7; padding: 20px; border-radius: 6px; margin-top: 30px; }
-    .questoes ol { margin-left: 20px; }
+    .questoes ul, .questoes ol { margin-left: 20px; }
+    .artifact-example { background-color: #f0f8ff; padding: 15px; border-left: 4px solid #3498db; margin-top: 15px; }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Aula 04: Produtividade, Governança e Gestão de Pessoas</h1>
+    <h1>Aula 04: Fundamentos do Scrum</h1>
     <p><strong>Duração:</strong> 2h &nbsp;|&nbsp; <strong>Modalidade:</strong> Online</p>
 
-    <h2>1. Ganho de Tempo e Produtividade</h2>
-    <p>Aumentar a eficiência significa entregar mais valor com menos esforço e menor tempo.</p>
-    <h3>1.1 Timeboxing</h3>
-    <p>Timeboxing estabelece limites fixos para atividades, impedindo procrastinação e foco excessivo em detalhes.</p>
+    <h2>0. Scrum no Contexto Ágil</h2>
+    <p>O Scrum surgiu no início dos anos 1990 como uma resposta à necessidade de gerenciar projetos complexos de forma mais flexível. Sua adoção crescente em empresas de tecnologia e negócios demonstra a eficácia do framework em promover entregas frequentes e adaptabilidade.</p>
+    <h3>0.1 Valores do Scrum</h3>
+    <p>Os valores do Scrum orientam a maneira de trabalhar em equipe, garantindo um ambiente colaborativo e eficaz.</p>
     <ul>
-      <li>Definição de blocos de tempo (por exemplo, 25 minutos de trabalho + 5 minutos de descanso).</li>
-      <li>Aplicação em reuniões: duração máxima de 30 minutos com agenda clara.</li>
-      <li>Exemplo prático: quadro de timeboxes semanais para planejamento, desenvolvimento e revisão.</li>
+      <li><strong>Coragem:</strong> enfrentamento de desafios técnicos e de negócios, assumindo riscos calculados.</li>
+      <li><strong>Foco:</strong> no trabalho da Sprint e nos objetivos do time, evitando distrações.</li>
+      <li><strong>Comprometimento:</strong> cumprir o que for acordado, mantendo a confiança entre os membros.</li>
+      <li><strong>Respeito:</strong> reconhecer contribuições e diferenças, valorizando a pluralidade de ideias.</li>
+      <li><strong>Abertura:</strong> transparência sobre trabalho e desafios, facilitando a inspeção dos artefatos.</li>
     </ul>
-    <h3>1.2 Automação de Tarefas</h3>
-    <p>Automatizar processos repetitivos libera a equipe para tarefas de maior valor.</p>
+    <h3>0.2 Pilares do Scrum</h3>
+    <p>Para que o Scrum funcione, ele se apoia em três pilares fundamentais que devem ser cultivados pela equipe.</p>
     <ul>
-      <li>Scripts para build e deploy: reduzir erros humanos e acelerar releases.</li>
-      <li>ChatOps: bots no Slack ou Teams para executar comandos de maneira colaborativa.</li>
-      <li>Templates de user stories e Definition of Ready para padronizar documentação.</li>
+      <li><strong>Transparência:</strong> artefatos visíveis e linguagem comum, garantindo entendimento compartilhado.</li>
+      <li><strong>Inspeção:</strong> revisão frequente dos artefatos e progresso, permitindo correções imediatas.</li>
+      <li><strong>Adaptação:</strong> ajustes imediatos quando algo sai do esperado, mantendo o rumo do projeto.</li>
     </ul>
-    <h3>1.3 Minimização de Waste</h3>
-    <p>Identificar e eliminar desperdícios segundo Lean Software Development.</p>
-    <ul>
-      <li><strong>Espera:</strong> tempos ociosos entre tarefas (ex.: builds longos).</li>
-      <li><strong>Transporte:</strong> movimentação desnecessária de dados ou artefatos.</li>
-      <li><strong>Excesso de processamento:</strong> funcionalidades não usadas.</li>
-      <li><strong>Inventário:</strong> código ou documentos obsoletos.</li>
-      <li><strong>Movimentação:</strong> trocas frequentes de contexto pelo time.</li>
-      <li><strong>Defeitos:</strong> retrabalho devido a bugs e falhas de qualidade.</li>
-      <li><strong>Talento não utilizado:</strong> subaproveitar habilidades da equipe.</li>
-    </ul>
-    <figure>
-      <img src="figures/waste_distribution.png" alt="Distribuição de waste">
-      <figcaption>Figura: Distribuição típica de tipos de desperdício em equipes de software</figcaption>
-    </figure>
 
-    <h2>2. Governança de Projetos Ágeis</h2>
-    <p>Estruturar a governança garante alinhamento estratégico e compliance contínuo.</p>
-    <h3>2.1 Comitê e Papéis</h3>
+    <h2>1. Papéis no Scrum</h2>
+    <p>Cada papel no Scrum tem responsabilidades bem definidas, alinhando expectativas e garantindo fluidez nas entregas.</p>
+    <h3>1.1 Product Owner (PO)</h3>
+    <p>O PO representa os interesses do cliente, definindo o que deve ser construído e a ordem de prioridade.</p>
     <ul>
-      <li>Formação de comitê ágil: PO sênior, Scrum Masters, representante de TI e financeiro.</li>
-      <li>RACI simplificado para decisão rápida: quem é responsável, quem aprova, quem consulta.</li>
-      <li>Escalonamento de impedimentos: critérios e prazos para tomada de decisão.</li>
+      <li>Responsável pelo <strong>Product Backlog</strong> e priorização de itens, baseando-se no valor de negócio.</li>
+      <li>Comunica visão e garante valor de negócio, alinhando objetivos de longo prazo.</li>
+      <li>Disponível para esclarecer requisitos ao time, reduzindo ambiguidades.</li>
     </ul>
-    <h3>2.2 KPIs e Relatórios</h3>
-    <p>Métricas devem ser acionáveis e alinhadas a objetivos de negócio.</p>
+    <h3>1.2 Scrum Master (SM)</h3>
+    <p>O SM atua como facilitador, removendo impedimentos e promovendo a adoção correta do Scrum.</p>
+    <ul>
+      <li>Guia da adoção do Scrum, remove impedimentos para o time.</li>
+      <li>Facilita eventos Scrum e protege o time de distrações externas.</li>
+      <li>Ensina práticas ágeis e promove melhoria contínua no processo.</li>
+    </ul>
+    <h3>1.3 Time de Desenvolvimento</h3>
+    <p>Times de desenvolvimento no Scrum são auto-organizados, assumindo total responsabilidade pela entrega do incremento.</p>
+    <ul>
+      <li>Equipes multifuncionais e auto-organizadas, com autonomia para definir como realizar o trabalho.</li>
+      <li>Todas as habilidades necessárias para entregar incremento sem dependências externas.</li>
+      <li>Tamanho recomendado: 3 a 9 membros, equilibrando comunicação e eficiência.</li>
+    </ul>
+
+    <h2>2. Artefatos do Scrum e Exemplos</h2>
+    <p>Os artefatos criam transparência e fornecem informações essenciais para a equipe e stakeholders.</p>
     <table>
-      <tr><th>KPI</th><th>Descrição</th><th>Método de Cálculo</th></tr>
-      <tr><td>Burn Rate</td><td>Consumo de orçamento</td><td>Gasto acumulado / orçamento total</td></tr>
-      <tr><td>Escopo Entregue</td><td>% de histórias concluídas</td><td>Total de histórias prontas / total planejado</td></tr>
-      <tr><td>Índice de Qualidade</td><td>Defeitos por funcionalidade</td><td>Total de bugs / total de funcionalidades</td></tr>
+      <tr><th>Artefato</th><th>Descrição</th><th>Propriedade</th></tr>
+      <tr><td>Product Backlog</td><td>Lista ordenada de tudo que pode ser necessário no produto.</td><td>Product Owner</td></tr>
+      <tr><td>Sprint Backlog</td><td>Conjunto de itens do Backlog selecionados para a Sprint + plano para entregá-los.</td><td>Time de Dev.</td></tr>
+      <tr><td>Incremento</td><td>Soma de todos os itens prontos que satisfazem Definition of Done.</td><td>Time de Dev.</td></tr>
     </table>
+    
+    <div class="artifact-example">
+      <h4>Exemplo: Product Backlog</h4>
+      <ol>
+        <li>Como usuário, quero me cadastrar com email e senha para acessar o sistema.</li>
+        <li>Como usuário, quero recuperar senha por email para não perder acesso.</li>
+        <li>Como administrador, quero visualizar relatório de vendas para análise mensal.</li>
+        <li>Como cliente, quero adicionar produtos no carrinho para finalizar compra.</li>
+      </ol>
+    </div>
+
+    <div class="artifact-example">
+      <h4>Exemplo: Sprint Backlog (Sprint 1)</h4>
+      <table>
+        <tr><th>#</th><th>Item</th><th>Estimativa (SP)</th><th>Status</th></tr>
+        <tr><td>1</td><td>Cadastro de usuário</td><td>5</td><td>Em progresso</td></tr>
+        <tr><td>2</td><td>Login com JWT</td><td>3</td><td>Pendente</td></tr>
+        <tr><td>3</td><td>Design da página inicial</td><td>2</td><td>Pendente</td></tr>
+      </table>
+    </div>
+
+    <div class="artifact-example">
+      <h4>Exemplo: Incremento e Definition of Done</h4>
+      <ul>
+        <li>Funcionalidade implementada e testada com 100% cobertura unitária.</li>
+        <li>Documentação do endpoint API atualizada.</li>
+        <li>Revisão de código concluída e merge no branch principal.</li>
+        <li>Deploy no ambiente de homologação realizado.</li>
+      </ul>
+    </div>
+
+    <h3>2.1 Definition of Done</h3>
+    <p>Critérios compartilhados que definem quando um item está concluído, garantindo qualidade e consistência no incremento entregue.</p>
+
+    <h2>3. Eventos do Scrum</h2>
+    <p>Os eventos estruturam o processo Scrum, promovendo inspeção e adaptação regulares.</p>
+    <h3>3.1 Sprint</h3>
+    <ul>
+      <li>Período fixo (1–4 semanas) para criar incremento, proporcionando cadência ao projeto.</li>
+      <li>Sem mudanças que quebrem o Goal da Sprint, garantindo foco e previsibilidade.</li>
+    </ul>
+    <h3>3.2 Sprint Planning</h3>
+    <ul>
+      <li>Definir <strong>objetivo da Sprint</strong> e selecionar itens do Product Backlog com base em valor e capacidade.</li>
+      <li>Time estima o esforço (Planning Poker, T-Shirt Sizing), promovendo entendimento compartilhado.</li>
+    </ul>
+    <h3>3.3 Daily Scrum</h3>
+    <ul>
+      <li>Reunião diária de 15min para sincronização, mantendo transparência do progresso.</li>
+      <li>Foco: O que foi feito, o que será feito e impedimentos, garantindo quick wins diários.</li>
+    </ul>
+    <h3>3.4 Sprint Review</h3>
+    <ul>
+      <li>Apresentação do incremento entregue para stakeholders, coletando feedback imediato.</li>
+      <li>Feedback de stakeholders e atualização do Product Backlog, alinhando prioridades.</li>
+    </ul>
+    <h3>3.5 Sprint Retrospective</h3>
+    <ul>
+      <li>Reflexão sobre o processo e identificação de melhorias, fomentando cultura de aprendizado.</li>
+      <li>Definição de ações para a próxima Sprint, promovendo melhoria contínua.</li>
+    </ul>
+
+    <h2>4. Fluxo Visual</h2>
     <figure>
-      <img src="figures/timeboxing_allocation.png" alt="Alocação de tempo por atividade">
-      <figcaption>Figura: Exemplo de alocação de tempo via timeboxing</figcaption>
+      <img src="figuras/scrum_flow_diagram.png" alt="Fluxo de Eventos Scrum">
+      <figcaption>Figura: Ciclo de eventos do Scrum durante uma Sprint, ilustrando sequência e interdependência dos eventos.</figcaption>
     </figure>
-    <h3>2.3 Gestão de Riscos</h3>
-    <ul>
-      <li>Backlog de riscos: registrar riscos em user stories para visibilidade.</li>
-      <li>Ações de mitigação: planos de contingência definidos durante o refinement.</li>
-      <li>Revisão de riscos em cada Retrospective, avaliando eficácia das respostas.</li>
-    </ul>
 
-    <h2>3. Organização de Equipes</h2>
-    <h3>3.1 Autonomia e Empowerment</h3>
-    <p>Times auto-organizados têm alto engajamento e responsabilidade.</p>
-    <ul>
-      <li>Definir metas claras (Objetivos e Key Results - OKRs) e permitir como alcançar.</li>
-      <li>Rodízio de funções de facilitação para desenvolver novas habilidades.</li>
-      <li>Espaço para experimentação: hackathons internos e spikes técnicos.</li>
-    </ul>
-    <h3>3.2 Gestão de Conflitos</h3>
-    <p>Conflitos podem ser saudáveis quando bem gerenciados.</p>
-    <ul>
-      <li>Modelos de conflito (Thomas-Kilmann): colaborativo vs competitivo.</li>
-      <li>Feedback estruturado: técnica “Start, Stop, Continue”.</li>
-      <li>Timeboxing de decisões para evitar impasse prolongado.</li>
-    </ul>
-    <h3>3.3 Comunicação</h3>
-    <ul>
-      <li>Reuniões diárias concisas com formato “3 perguntas”.</li>
-      <li>Documentação colaborativa: wikis, Confluence e notas de retro visíveis.</li>
-      <li>Comunicação assíncrona: threads em Slack, e-mails curtos com assunto padronizado.</li>
-    </ul>
-
-    <h2>4. Cultura e Liderança Servidora</h2>
-    <p>Líderes servidores colocam as necessidades do time primeiro, servindo e capacitando.</p>
-    <ul>
-      <li>Princípios de liderança servidora: escuta ativa, empatia, cura e visão.</li>
-      <li>Ações: remover impedimentos, promover reconhecimento público e desenvolvimento profissional.</li>
-      <li>Exemplos práticos: cerimônias de celebração de sprints e feedback 360°.</li>
-    </ul>
-
-    <h2>5. Questões-Problema</h2>
+    <h2>5. Questões-Problema e Discussão</h2>
+    <p>As atividades a seguir incentivam a aplicação prática dos conceitos apresentados.</p>
     <div class="questoes">
       <ol>
-        <li>Crie um plano de timeboxing para uma semana de Sprint, detalhando blocos de atividades.</li>
-        <li>Desenvolva um dashboard simples com os KPIs apresentados e explique como usá-lo em reuniões de comitê.</li>
-        <li>Descreva um cenário de conflito de prioridade entre features; proponha resolução baseada no modelo TK.</li>
-        <li>Liste ações de liderança servidora que um SM pode executar após uma Sprint com baixa moral.</li>
+        <li>Debata em duplas: como o PO definiria o top 3 itens do Product Backlog para o próximo release?</li>
+        <li>No grupo: simule uma Sprint Planning usando os exemplos de Sprint Backlog e faça estimativas em Planning Poker.</li>
+        <li>Discuta: quais benefícios e desafios vocês identificam ao usar uma Definition of Done rigorosa?</li>
+        <li>Estudo de caso: como vocês adaptariam o Daily Scrum para equipes remotas, mantendo a transparência?</li>
+        <li>Role-play: um stakeholder insatisfeito exige mudança de escopo no meio da Sprint; como o SM e o PO devem responder?</li>
       </ol>
     </div>
 
