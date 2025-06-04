@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+        <title>Aprenda a programar</title>
+        <style>
+            /*
+            #2C2F40
+            #586173
+            #F2E85C
+            #F2A81D
+            #BF6517
+            */
+            * {
+                padding: 0px;
+                margin: 0px;
+            }
+            body {
+                background-color: #2C2F40;
+                color: #F2F2F2;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                font-family: Montserrat;
+                font-size: 12px;
+            }
+            header {
+                background-color: #F2A81D;
+                width: 70%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding-top: 3%;
+                padding-bottom: 4%;
+            }
+            header h1 {
+                margin: 0px;
+                padding: 0px;
+                font-size: 2rem;
+            }    
+            header h3 {
+                margin: 0px;
+                padding: 0px;
+                font-size: 1.5rem;
+            }
+            main {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 70%;
+            }
+
+            section{
+                margin-top: 15px;
+                width: 100%;
+            }
+
+            section h3{
+                font-size: 2rem;
+                margin-top: 25px;
+                margin-bottom: 20px;
+            }
+
+            .section-head {
+                text-align: center;
+                padding: 10px;
+                background-color: #586173;
+            }
+
+            .section-head p{
+                font-size: 1.3rem;
+                margin: 15px;
+                text-align: justify;
+            }
+
+            .section-head-img{
+                width: 360px;
+            }
+
+            .section-cards{
+                text-align: center;
+            }
+
+            .card-info{
+                padding: 3%;
+                background-color: #BF6517;
+                margin-top: 15px;
+                border-radius: 5px;
+                display: flex;
+                
+            }
+
+            .card-info img{
+                height: 120px;
+                margin-right: 15px;
+            }
+
+            .card-info h5{
+             font-size: 1.5rem;
+             text-align: left;   
+            }
+
+            .card-info p{
+                font-size: 1.2rem;
+                text-align: left;
+                min-height: 60%;
+            }
+
+            .card-info a{
+                font-size: 1.3rem;
+                text-decoration: none;
+                background-color: #586173;
+                color: #F2F2F2;
+                border-radius: 3px;
+                padding: 5px 15px 5px 15px;
+                
+            }
+
+            .section-how-to-start{
+                text-align: center;
+                background-color: #586173;
+                padding: 15px;
+                border-radius: 15px;
+            }
+
+            .how-to-start-container{
+                display: flex;
+                justify-content: space-between;
+                text-align: center;
+                padding-bottom: 25px;
+            }
+
+            .how-to-start-card{
+                flex: 1;
+            }
+
+            .how-to-start-container img{
+                width: 64px;
+            }
+
+            .how-to-start-container p{
+                font-size: 1.3rem;
+            }
+
+            footer {
+                padding: 15px;
+                margin: 0px 5px 0px 20px;
+                font-size: 1.3rem;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>
+                APRENDA A PROGRAMAR
+            </h1>
+            <h3>
+                Descomplicando a programação
+            </h3>
+        </header>
+        <main>
+            <section class="section-head">
+                <h3>Por que aprender a programar?</h3>
+                <img class="section-head-img" src="img/sofware-developer-thinking-while-touching-beard-while-typing-laptop-sitting-desk-with-multiple-screens-parsing-code-focused-database-admin-working-with-team-coding-background.jpg">
+                <p>
+                    Aprender programação é importante por diversos motivos, um deles é trabalhar em umas das profissões que mais cresce no mundo!
+                    A programação possui diversas áreas de atuação, como o desenvolvimento de softwares, automação de tarefas, apoio a decisão, ensino e aprendizagem e diversas outras.
+                    Através da lógica de programação o indivíduo aprimora seu pensamento lógico e sua capacidade de resolver os mais diversos tipos de problemas.
+                </p>
+            </section>
+            <section class="section-cards">
+                <h3>Conheça as linguagens de programação</h3>
+                <div class="card-info">
+                    <img src="img/javascript-logo.png" />
+                    <div>
+                     <h5>Javascript</h5>   
+                     <p>Javascript é uma linguagem de programação muito popular e atualmente apresenta diversos recursos e bibliotecas interessantes</p>
+                     <a href="#">Visite o site</a>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <img src="img/python_logo.svg" />
+                    <div>
+                     <h5>Python</h5>   
+                     <p>A linguagem Python cresceu bastante nos últimos anos principalmente por servir para resolver diversos tipos de problemas diferentes</p>
+                     <a href="#">Visite o site</a>
+                    </div>
+                </div>
+                <div class="card-info">
+                    <img src="img/react-js-logo.png" />
+                    <div>
+                     <h5>React</h5>   
+                     <p>React se tornou ao longo dos anos uma das principais escolhas dos desenvolvedores para a construção do front-end das aplicações</p>
+                     <a href="#">Visite o site</a>
+                    </div>
+                </div>
+            </section>
+            <section class="section-how-to-start">
+                <h3>Como começar</h3>
+                <div class="how-to-start-container">
+                    <div class="how-to-start-card">
+                        <img src="img/graduacao.png" />
+                        <p>
+                            "Procure uma escola de programação"
+                        </p>
+                    </div>
+                    <div class="how-to-start-card">
+                        <img src="img/aprendendo.png" />
+                        <p>
+                            "Estudar por conta própria"
+                        </p>
+                    </div>
+                    <div class="how-to-start-card">
+                        <img src="img/project-management.png" />
+                        <p>
+                            "Criar seus próprios projetos"
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </main>
+            <footer>
+                <p>
+                    Infinity School - 2023
+                </p>
+            </footer>
+        
+    </body>
+</html>

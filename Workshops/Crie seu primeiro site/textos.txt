@@ -1,0 +1,12 @@
+Por que aprender a programar?
+
+Aprender programação é importante por diversos motivos, um deles é trabalhar em umas das profissões que mais cresce no mundo!
+A programação possui diversas áreas de atuação, como o desenvolvimento de softwares, automação de tarefas, apoio a decisão, ensino e aprendizagem e diversas outras.
+Através da lógica de programação o indivíduo aprimora seu pensamento lógico e sua capacidade de resolver os mais diversos tipos de problemas.
+
+
+Javascript é uma linguagem de programação muito popular e atualmente apresenta diversos recursos e bibliotecas interessantes      
+
+A linguagem Python cresceu bastante nos últimos anos principalmente por servir para resolver diversos tipos de problemas diferentes
+
+React se tornou ao longo dos anos uma das principais escolhas dos desenvolvedores para a construção do front-end das aplicações
