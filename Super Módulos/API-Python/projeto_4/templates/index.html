@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tic Tac Toe em Tempo Real</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    #login, #lobby, #game { max-width: 400px; margin: auto; }
+    #lobby, #game { display: none; }
+    .cell {
+      width: 60px; height: 60px; border: 1px solid #333; 
+      display: inline-flex; align-items: center; justify-content: center; 
+      font-size: 24px; cursor: pointer;
+    }
+    .row { display: flex; }
+    #board { margin-top: 10px; }
+    #status { margin-top: 10px; font-weight: bold; }
+    #btnPlay { padding: 10px 20px; margin-top: 10px; }
+  </style>
+  <script src="https://cdn.socket.io/4.5.0/socket.io.min.js"></script>
+</head>
+<body>
+  <!-- Tela de login -->
+  <div id="login">
+    <h2>Tic Tac Toe</h2>
+    <label>Digite seu nome:</label><br />
+    <input type="text" id="username" placeholder="Seu nome" />
+    <button id="btnLogin">Entrar</button>
+  </div>
+
+  <!-- Lobby de espera -->
+  <div id="lobby">
+    <h3>Olá, <span id="lblUsername"></span>! Bem-vindo ao Lobby.</h3>
+    <button id="btnPlay">Jogar</button>
+    <p id="waitingMsg" style="display:none;">Aguardando outro jogador...</p>
+  </div>
+
+  <!-- Sala de jogo -->
+  <div id="game">
+    <h3>Jogo: <span id="opponentName"></span></h3>
+    <div id="board">
+      <!-- 3x3 células -->
+      <div class="row">
+        <div class="cell" data-index="0"></div>
+        <div class="cell" data-index="1"></div>
+        <div class="cell" data-index="2"></div>
+      </div>
+      <div class="row">
+        <div class="cell" data-index="3"></div>
+        <div class="cell" data-index="4"></div>
+        <div class="cell" data-index="5"></div>
+      </div>
+      <div class="row">
+        <div class="cell" data-index="6"></div>
+        <div class="cell" data-index="7"></div>
+        <div class="cell" data-index="8"></div>
+      </div>
+    </div>
+    <div id="status"></div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const socket = io();
+
+      const loginDiv = document.getElementById('login');
+      const lobbyDiv = document.getElementById('lobby');
+      const gameDiv  = document.getElementById('game');
+
+      const usernameInp = document.getElementById('username');
+      const btnLogin    = document.getElementById('btnLogin');
+      const lblUsername = document.getElementById('lblUsername');
+
+      const btnPlay     = document.getElementById('btnPlay');
+      const waitingMsg  = document.getElementById('waitingMsg');
+
+      const boardDiv    = document.getElementById('board');
+      const statusDiv   = document.getElementById('status');
+      const opponentLbl = document.getElementById('opponentName');
+
+      let username = '';
+      let room = '';
+      let symbol = '';
+      let yourTurn = false;
+
+      // 1) Login
+      btnLogin.onclick = () => {
+        const name = usernameInp.value.trim();
+        if (!name) {
+          alert('Digite seu nome antes de continuar.');
+          return;
+        }
+        username = name;
+        lblUsername.textContent = username;
+        socket.emit('join_lobby', { username });
+      };
+
+      // 2) Confirmação de entrada no lobby
+      socket.on('lobby_joined', () => {
+        loginDiv.style.display = 'none';
+        lobbyDiv.style.display = 'block';
+      });
+
+      // 3) Ao clicar em "Jogar"
+      btnPlay.onclick = () => {
+        btnPlay.disabled = true;
+        waitingMsg.style.display = 'block';
+        socket.emit('find_match', { username });
+      };
+
+      // 4) Está na fila aguardando
+      socket.on('waiting', () => {
+        waitingMsg.textContent = 'Aguardando outro jogador...';
+      });
+
+      // 5) Recebe início de jogo
+      socket.on('start_game', (data) => {
+        room = data.room;
+        symbol = data.symbol;
+        yourTurn = data.your_turn;
+        const opponent = data.opponent;
+        const board = data.board; // array de 9 strings
+
+        // Mostrar área de jogo
+        lobbyDiv.style.display = 'none';
+        gameDiv.style.display = 'block';
+        opponentLbl.textContent = opponent;
+        renderBoard(board);
+        updateStatus();
+      });
+
+      // 6) Atualização do tabuleiro
+      socket.on('board_update', (data) => {
+        const board = data.board;
+        yourTurn = data.your_turn;
+        renderBoard(board);
+        updateStatus();
+      });
+
+      // 7) Fim de jogo
+      socket.on('game_over', (data) => {
+        const result = data.result; // 'win', 'lose', 'draw'
+        const board = data.board;
+        renderBoard(board);
+
+        if (result === 'win') {
+          alert('Você venceu!');
+        } else if (result === 'lose') {
+          alert('Você perdeu :(');
+        } else {
+          alert('Empate!');
+        }
+
+        // Voltar ao lobby
+        gameDiv.style.display = 'none';
+        lobbyDiv.style.display = 'block';
+        btnPlay.disabled = false;
+        waitingMsg.style.display = 'none';
+        statusDiv.textContent = '';
+      });
+
+      // 8) Oponente saiu (desconectou)
+      socket.on('opponent_left', () => {
+        alert('Seu oponente saiu. Retornando ao lobby.');
+        gameDiv.style.display = 'none';
+        lobbyDiv.style.display = 'block';
+        btnPlay.disabled = false;
+        waitingMsg.style.display = 'none';
+        statusDiv.textContent = '';
+      });
+
+      // 9) Renderizar o tabuleiro
+      function renderBoard(board) {
+        const cells = document.querySelectorAll('.cell');
+        cells.forEach(cell => {
+          const idx = parseInt(cell.dataset.index);
+          cell.textContent = board[idx];
+        });
+      }
+
+      // 10) Atualizar mensagem de status
+      function updateStatus() {
+        if (yourTurn) {
+          statusDiv.textContent = 'Sua vez (' + symbol + ')';
+        } else {
+          statusDiv.textContent = 'Aguardando oponente...';
+        }
+      }
+
+      // 11) Clique nas células para jogar
+      boardDiv.addEventListener('click', (e) => {
+        if (!yourTurn) return;
+        if (!e.target.classList.contains('cell')) return;
+        const idx = parseInt(e.target.dataset.index);
+        socket.emit('make_move', { username, room, index: idx });
+      });
+    });
+  </script>
+</body>
+</html>

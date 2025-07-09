@@ -2,311 +2,127 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Aula 05 – Gerenciamento de Projetos com PMBOK</title>
+  <title>Aula 05 – Scrum Avançado</title>
   <style>
     body { font-family: Arial, sans-serif; line-height: 1.6; background-color: #f5f7fa; color: #333; padding: 20px; }
     .container { max-width: 900px; margin: auto; background-color: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
     h1 { color: #2c3e50; margin-bottom: 5px; }
     h2 { color: #34495e; margin-top: 25px; border-bottom: 2px solid #ecf0f1; padding-bottom: 5px; }
     h3 { color: #4a6274; margin-top: 20px; }
-    h4 { color: #5a6b7a; margin-top: 15px; }
+    h4 { color: #5a6b7a; margin-top: 15px; font-size: 1em; }
     ul { margin-left: 20px; }
-    ol { margin-left: 20px; }
     table { width: 100%; border-collapse: collapse; margin-top: 15px; }
     table, th, td { border: 1px solid #ccc; }
     th, td { padding: 8px; text-align: center; }
     th { background-color: #ecf0f1; }
+    ol { margin-left: 20px; }
     figure { margin: 20px auto; text-align: center; }
     figure img { max-width: 100%; height: auto; border-radius: 4px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
     figcaption { font-size: 0.9em; color: #555; margin-top: 5px; }
     .questoes { background-color: #eef3f7; padding: 20px; border-radius: 6px; margin-top: 30px; }
     .questoes ol { margin-left: 20px; }
+    .artifact-example { background-color: #f0f8ff; padding: 15px; border-left: 4px solid #3498db; margin-top: 15px; }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Aula 05: Gerenciamento de Projetos com PMBOK</h1>
+    <h1>Aula 05: Scrum Avançado</h1>
     <p><strong>Duração:</strong> 2h &nbsp;|&nbsp; <strong>Modalidade:</strong> Online</p>
 
-    <h2>1. Introdução ao Guia PMBOK</h2>
-    <p>O Guia PMBOK (Project Management Body of Knowledge) do PMI consolida boas práticas para orientar a gestão de projetos de qualquer setor. Flexível, é aplicado em projetos preditivos, ágeis e híbridos.</p>
-    <h3>1.1 Objetivos e Estrutura</h3>
+    <h2>0. Scrum em Escala</h2>
+    <p>Em grandes produtos, múltiplas equipes Scrum trabalham de forma coordenada. Frameworks de escala mantêm transparência, inspeção e adaptação entre times.</p>
+    <h3>0.1 Nexus</h3>
     <ul>
-      <li>Uniformizar terminologia e processos reconhecidos globalmente.</li>
-      <li>Suportar certificações como PMP e CAPM.</li>
-      <li>A 6ª edição apresenta 49 processos organizados em 5 grupos; a 7ª agrupa princípios e domínios de desempenho.</li>
-    </ul>
-
-    <h2>2. Grupos de Processos do Ciclo de Vida</h2>
-
-    <h3>2.1 Iniciação</h3>
-    <p>Define formalmente o projeto e autoriza recursos.</p>
-    <ul>
-      <li>Desenvolver Termo de Abertura do Projeto (TAP): objetivos, benefícios, stakeholders.</li>
-      <li>Identificar stakeholders: matriz de poder/interesse e expectativas.</li>
-    </ul>
-
-    <h3>2.2 Planejamento</h3>
-    <p>Estrutura detalhada guia a execução e controle.</p>
-    <ul>
-      <li>Plano de Gerenciamento do Projeto, integrando todos os planos subsidiários.</li>
-      <li>Definição do escopo: coletar requisitos, criar EAP (WBS) e dicionário da EAP.</li>
-      <li>Cronograma: sequenciamento de atividades, estimativas de duração e gráfico de Gantt.</li>
-      <li>Orçamento: estimativa de custos e linha de base de custos.</li>
-      <li>Plano de qualidade, comunicação, riscos, aquisições e engajamento de stakeholders.</li>
-    </ul>
-
-    <figure>
-      <img src="figuras/gantt_chart_software.png" alt="Gráfico de Gantt">
-      <figcaption>Figura: Gráfico de Gantt de atividades</figcaption>
-    </figure>
-    
-    <h3>2.3 Execução</h3>
-    <p>Coordena pessoas e recursos para concluir o trabalho planejado.</p>
-    <ul>
-      <li>Direção e gerenciamento do trabalho do projeto.</li>
-      <li>Gerenciamento das aquisições e desenvolvimento da equipe.</li>
-      <li>Execução de reuniões de kickoff e alinhamento de entregas.</li>
-    </ul>
-
-    <h3>2.4 Monitoramento e Controle</h3>
-    <p>Acompanha, revisa e ajusta o progresso e o desempenho.</p>
-    <ul>
-      <li>Medição de desempenho: EVM (Earned Value Management).</li>
-      <li>Controle integrado de mudanças: analisar solicitações e atualizar documentos.</li>
-      <li>Relatórios de status, gestão de riscos e garantia de qualidade contínua.</li>
-    </ul>
-
-    <h3>2.5 Encerramento</h3>
-    <p>Finaliza todas as atividades, formaliza aceitação e documenta lições aprendidas.</p>
-    <ul>
-      <li>Encerrar contratos e validar entregas com stakeholders.</li>
-      <li>Coletar feedback, registrar lições aprendidas e arquivar documentação.</li>
-    </ul>
-
-    <figure>
-      <img src="figuras/project_lifecycle.png" alt="Ciclo de vida do projeto">
-      <figcaption>Figura: Ciclo de vida do projeto</figcaption>
-    </figure>
-
-    <h2>3. Áreas de Conhecimento Detalhadas</h2>
-
-    <h3>3.1 Integração</h3>
-    <p>Refere-se à coordenação de todos os elementos do projeto para garantir resultados harmoniosos:</p>
-    <ul>
-      <li><strong>Termo de Abertura do Projeto:</strong> documento que autoriza oficialmente o projeto e define seus objetivos.</li>
-      <li><strong>Plano de Gerenciamento do Projeto:</strong> consolida todas as decisões de planejamento em um guia integrado.</li>
-      <li><strong>Ação Corretiva Integrada:</strong> processo de revisão e implementação de mudanças que mantêm o alinhamento entre as áreas.</li>
-      <li><strong>Análise de Stakeholders:</strong> ferramenta para mapear interesses, influências e estratégia de engajamento.</li>
-    </ul>
-
-    <h3>3.2 Escopo</h3>
-    <p>Determina o que está (e não está) incluído no projeto para evitar retrabalho e garantir foco:</p>
-    <ul>
-      <li><strong>Coleta de Requisitos:</strong> técnica de entrevistas, workshops, observação e protótipos para extrair necessidades.</li>
-      <li><strong>EAP (Estrutura Analítica do Projeto):</strong> decomposição hierárquica do trabalho em pacotes gerenciáveis, com dicionário associando detalhes a cada pacote.</li>
-    </ul>
-    <figure>
-      <img src="figuras/eap.png" alt="Diagrama de EAP">
-      <figcaption>Exemplo de EAP para módulo de login e autorização</figcaption>
-    </figure>
-
-     <h3>3.3 Tempo</h3>
-    <p>Planejar e controlar prazos é essencial para garantir que as entregas ocorram conforme o cronograma acordado. O PMBOK recomenda ferramentas e técnicas específicas:</p>
-    <h4>3.3.1 Sequenciamento de Atividades</h4>
-    <p>Consiste em organizar as tarefas na ordem em que devem ser executadas, identificando dependências:</p>
-    <ul>
-      <li><strong>PDM (Precedence Diagram Method):</strong> cada atividade é representada por um nó, e as setas indicam dependências. Permite visualizar caminhos críticos e ajustar datas de início e fim.</li>
-      <li><strong>ADM (Arrow Diagram Method):</strong> utiliza setas para representar atividades e nós para eventos. Embora menos comum hoje, ajuda a ilustrar exigências de sequência.</li>
-    </ul>
-    <figure>
-      <img src="figuras/PDM.png" alt="Diagrama de PDM">
-      <figcaption>Exemplo de PDM</figcaption>
-    </figure>
-    <h4>3.3.2 Estimativa PERT</h4>
-    <p>O PERT (Program Evaluation and Review Technique) melhora a precisão das estimativas ao contemplar incertezas:</p>
-    <ul>
-      <li><strong>O (Otimista):</strong> melhor cenário, quando tudo acontece sem atrasos.</li>
-      <li><strong>M (Mais Provável):</strong> cenário mais comum, considerando condições realistas.</li>
-      <li><strong>P (Pessimista):</strong> pior cenário, com todas as possíveis dificuldades.</li>
-      <li><strong>Cálculo do Tempo Esperado (TR):</strong> TR = (O + 4M + P) / 6, atribuindo peso maior ao cenário mais provável.</li>
-    </ul>
-    <h4>3.3.3 Simulação de Monte Carlo</h4>
-    <p>Monte Carlo é uma técnica computacional que gera múltiplos cenários de cronograma para avaliar riscos e incertezas:</p>
-    <ul>
-      <li>Define distribuições estatísticas (normal, triangular) para as durações das atividades.</li>
-      <li>Executa milhares de simulações, sorteando valores dentro das distribuições.</li>
-      <li>Analisa saídas para obter probabilidade de cumprir datas específicas (por exemplo, 90% de chance de entregar até X semanas).</li>
-      <li>Ajuda na tomada de decisão ao apresentar faixas de confiança e possíveis desvios do cronograma.</li>
-    </ul>
-    <figure>
-      <img src="figuras/monte_carlo.png" alt="Histograma de Monte Carlo">
-      <figcaption>Exemplo de Simulação de Monte Carlo</figcaption>
-    </figure>
-    <h3>3.4 Custo</h3>
-    <p>Gerenciar efetivamente custos garante que o projeto seja realizado dentro do orçamento aprovado:</p>
-    <h4>3.4.1 Estimativas de Custos</h4>
-    <ul>
-      <li><strong>Paramétrica:</strong> utiliza relações quantitativas entre variáveis (ex.: custo por hora de trabalho × número de horas estimadas). Adequada quando há dados históricos confiáveis.</li>
-      <li><strong>Bottom-Up:</strong> detalha individualmente cada pacote de trabalho (EAP), estima o custo de cada unidade e soma para obter o total. Oferece maior precisão, mas consome mais tempo.</li>
-      <li><strong>Análoga:</strong> baseia-se em custo de projetos similares anteriores, ajustando por diferenças de escopo, complexidade ou local. Rápida, porém menos precisa.</li>
-    </ul>
-    <h4>3.4.2 Controle de Custos</h4>
-    <ul>
-      <li><strong>Reservas de Contingência:</strong> montante provisionado para riscos identificados, gerenciado pelo gerente de projetos para absorver variações previstas.</li>
-      <li><strong>Reservas de Gerência:</strong> reserva adicional para riscos imprevistos, com aprovação de stakeholders executivos.</li>
-      <li><strong>Earned Value Management (EVM):</strong> técnica que integra escopo, cronograma e custos para medir desempenho:
+      <li><strong>Objetivo:</strong> integrar 3–9 times Scrum em um único Nexus</li>
+      <li><strong>Roles:</strong> Nexus Integration Team (inclui Scrum Masters e PO sênior)</li>
+      <li><strong>Eventos Extras:</strong>
         <ul>
-          <li><strong>Planned Value (PV):</strong> valor orçado do trabalho planejado até a data.</li>
-          <li><strong>Earned Value (EV):</strong> valor do trabalho realmente realizado até a data.</li>
-          <li><strong>Actual Cost (AC):</strong> custo real incorrido até a data.</li>
-          <li>Índices:
-            <ul>
-              <li><strong>CPI (Cost Performance Index):</strong> EV/AC — valor de 1 significa custo conforme o planejado.</li>
-              <li><strong>SPI (Schedule Performance Index):</strong> EV/PV — valor de 1 indica andamento conforme cronograma.</li>
-            </ul>
-          </li>
+          <li>Scrum of Scrums: revisão integrada diária de impedimentos entre times.</li>
+          <li>Refinamento Nexus: limpeza e alinhamento de backlog antes da Sprint Planning.</li>
         </ul>
       </li>
-      <li>Relatórios de variação de custo (CV = EV − AC) e previsão de custo ao término (EAC).</li>
+      <li><strong>Artifacts:</strong> Nexus Sprint Backlog reúne itens compartilhados; Integration Increment valida integração pré-lançamento.</li>
+      <li><strong>Práticas:</strong> builds contínuos de todos os repositórios, testes de integração automatizados.</li>
     </ul>
-
-    <h3>3.5 Qualidade</h3>
-    <p>Assegurar que o produto atenda aos requisitos e padrões:</p>
+    <h3>0.2 LeSS (Large-Scale Scrum)</h3>
     <ul>
-      <li><strong>Planejamento:</strong> definição de métricas de qualidade e padrões (ISO, CMMI).</li>
-      <li><strong>Garantia:</strong> auditorias de processo e revisões de qualidade contínuas.</li>
-      <li><strong>Controle:</strong> inspeções, testes de aceitação e análises de causa raiz de defeitos.</li>
-    </ul>
-
-    <h3>3.6 Recursos</h3>
-    <p>Gerenciar pessoas, materiais e equipamentos necessários:</p>
-    <ul>
-      <li><strong>Estimativa de Recursos:</strong> identificar quantidades e tipos de recursos para cada atividade.</li>
-      <li><strong>Desenvolvimento de Equipe:</strong> treinamentos, workshops e atividades de team building para melhorar performance.</li>
-    </ul>
-
-    <h3>3.7 Comunicações</h3>
-    <p>Fluxo de informações para manter todos alinhados:</p>
-    <ul>
-      <li><strong>Plano de Comunicações:</strong> define canais (e-mail, reuniões, dashboards), frequência e responsáveis.</li>
-      <li><strong>Relatórios de Status:</strong> uso de dashboards interativos e reuniões de status para visibilidade.</li>
-    </ul>
-
-    <h3>3.8 Riscos</h3>
-    <p>Identificar, analisar e responder a incertezas que podem impactar o projeto:</p>
-    <ul>
-      <li><strong>Identificação:</strong> técnicas SWOT, Delphi, brainstorming e entrevistas.</li>
-      <li><strong>Análise Qualitativa:</strong> classificação de probabilidade e impacto em matriz.</li>
-      <li><strong>Análise Quantitativa:</strong> tabelas de riscos e simulações (Monte Carlo).</li>
-      <li><strong>Respostas:</strong> mitigação, aceitação, transferência, exploração e contingência.</li>
-    </ul>
-    <figure>
-      <img src="figuras/SWOT.png" alt="Histograma de Monte Carlo">
-      <figcaption>Exemplo de Simulação de Monte Carlo</figcaption>
-    </figure>
-
-    <h3>3.9 Aquisições</h3>
-    <p>Gerir compras e contratos com fornecedores externos é fundamental para garantir qualidade, prazo e custo.</p>
-    <h4>3.9.1 Planejamento de Contratos</h4>
-    <p>Documentos que definem o escopo e as regras de fornecimento:</p>
-    <ul>
-      <li><strong>RFP (Request for Proposal):</strong> solicita propostas detalhadas de solução, incluindo metodologia, cronograma e custos.</li>
-      <li><strong>RFQ (Request for Quotation):</strong> solicita apenas preços e condições comerciais para itens ou serviços bem definidos.</li>
-      <li><strong>SOW (Statement of Work):</strong> descreve o escopo de trabalho, entregáveis, critérios de aceitação e responsabilidades.</li>
-    </ul>
-    <h4>3.9.2 Seleção de Fornecedores</h4>
-    <p>Processo para escolher a melhor proposta:</p>
-    <ul>
-      <li><strong>Critérios de avaliação:</strong> custo, prazo, qualidade, experiência e capacidade técnica.</li>
-      <li><strong>Matriz de pontuação:</strong> atribuir pesos e notas para cada critério, comparando fornecedores.</li>
-      <li><strong>Negociação:</strong> ajustar entregáveis, prazos e preços antes da assinatura do contrato.</li>
-    </ul>
-    <h4>3.9.3 Administração de Contratos</h4>
-    <p>Monitorar e controlar o desempenho durante a execução:</p>
-    <ul>
-      <li><strong>Indicadores de desempenho:</strong> SLA, entregas parciais e qualidade dos produtos entregues.</li>
-      <li><strong>Reuniões de acompanhamento:</strong> revisões periódicas com fornecedores para tratar de desvios e melhorias.</li>
-      <li><strong>Gestão de mudanças contratuais:</strong> processo formal para avaliar impactos de alterações no escopo, cronograma ou custos.</li>
-      <li><strong>Encerramento de contrato:</strong> validação de entregas finais, pagamento de saldos e lições aprendidas com o fornecedor.</li>
-    </ul>
-
-    <h3>3.10 Stakeholders</h3>
-    <p>Engajar e gerenciar expectativas dos envolvidos:</p>
-    <ul>
-      <li><strong>Mapeamento:</strong> matriz de poder vs. interesse para priorizar esforços.</li>
-      <li><strong>Plano de Engajamento:</strong> estratégias de comunicação e envolvimento para cada grupo.</li>
-      <li><strong>Monitoramento:</strong> avaliação contínua do engajamento e ajustes nas abordagens.</li>
-    </ul>
-
-    <h2>4. Ferramentas e Técnicas Avançadas</h2>
-    <p>Estas técnicas avançadas complementam as práticas básicas, fornecendo maior precisão na previsão, clareza de papéis e momentos estruturados de alinhamento.</p>
-    <h4>4.1 Análise de Valor Agregado (EVM)</h4>
-    <p>A EVM integra escopo, tempo e custo para fornecer métricas de desempenho e previsão de resultados:</p>
-    <ul>
-      <li><strong>Planned Value (PV):</strong> valor orçado do trabalho planejado; serve como baseline.</li>
-      <li><strong>Earned Value (EV):</strong> valor do trabalho realmente realizado; indica progresso real.</li>
-      <li><strong>Actual Cost (AC):</strong> custo incorrido; revela consumo de recursos.</li>
-      <li><strong>Performance Indexes:</strong>
+      <li><strong>Objetivo:</strong> aplicar Scrum puro para até 8 times trabalhando num único backlog</li>
+      <li><strong>Product Backlog:</strong> um só, priorizado pelo PO, garante visão unificada.</li>
+      <li><strong>Planejamento de Sprint:</strong>
         <ul>
-          <li>CPI = EV / AC — eficiência de custo (CPI&gt;1 bom, &lt;1 alerta).</li>
-          <li>SPI = EV / PV — eficiência de cronograma (SPI&gt;1 à frente, &lt;1 atrasado).</li>
+          <li>Parte 1: conjunta para definição de metas.</li>
+          <li>Parte 2: times convergem em salas separadas para detalhar seu Sprint Backlog.</li>
         </ul>
       </li>
-      <li><strong>Previsões:</strong>
-        <ul>
-          <li>EAC (Estimate at Completion): prevê custo total ao término.</li>
-          <li>ETC (Estimate to Complete): estima custo restante.</li>
-        </ul>
-      </li>
+      <li><strong>Eventos Comuns:</strong> Review e Retrospective podem ser em times ou todos juntos para consistência.</li>
+      <li><strong>Benefícios:</strong> mantém simplicidade do Scrum, reduz overhead de coordenação.</li>
     </ul>
-    <h4>4.2 Simulação de Monte Carlo</h4>
-    <p>Técnica estatística que cria diversos cenários de projeto para avaliar probabilidades:</p>
+
+    <h2>1. Refinamento de Backlog e Planejamento de Release</h2>
+    <p>Manter o Product Backlog acessível e preparado evita bloqueios. Release Planning traduz visão em sequência de Sprints.</p>
+    <h3>1.1 Boas Práticas de Refinamento</h3>
     <ul>
-      <li>Define distribuição de probabilidade para durações ou custos.</li>
-      <li>Executa milhares de iterações, amostrando valores conforme as distribuições.</li>
-      <li>Gera histogramas ou gráficos de probabilidade acumulada para prazos e custos.</li>
-      <li>Suporta tomada de decisão baseada em níveis de confiança (ex.: 85% de chance de entregar em X dias).</li>
+      <li>Agendar <strong>Backlog Refinement</strong> semanal de 1h com PO, SM e pelo menos 1 membro de Dev.</li>
+      <li>Para cada story: definir <strong>Critérios de Aceitação</strong> claros e dividir se ultrapassar 8 SP.</li>
+      <li>Usar técnicas de <em>user story splitting</em>: workflow steps, data variations, business rule variations.</li>
+      <li>Registrar dependências técnicas e remover histórias obsoletas ou duplicadas.</li>
     </ul>
-    <h4>4.3 Matriz RACI</h4>
-    <p>Instrumento para definir funções e responsabilidades, evitando ambiguidades:</p>
+    <h3>1.2 Roadmap e Release Planning</h3>
+    <ul>
+      <li>Construir <strong>Release Roadmap</strong> para 3–6 meses, com entregas de funcionalidades chave.</li>
+      <li>Mapear versões (releases) em função do Velocity médio e capacidade de cada Sprint.</li>
+      <li>Identificar riscos: dependências externas, requisitos regulatórios e recursos críticos.</li>
+      <li>Revisar roadmap a cada Release Review, ajustando prioridades e escopo.</li>
+    </ul>
+
+    <h2>2. Métricas e Indicadores</h2>
+    <p>Monitorar métricas ajuda a prever entregas, identificar gargalos e melhorar performance.</p>
     <table>
-      <tr><th>Responsável</th><th>Responsável Aprovar</th><th>Consultado</th><th>Informado</th></tr>
-      <tr><td>R</td><td>A</td><td>C</td><td>I</td></tr>
+      <tr><th>Métrica</th><th>Objetivo</th><th>Como Interpretar</th></tr>
+      <tr><td>Velocity</td><td>Capacidade média de SP por Sprint</td><td>Calcular média de 3–5 Sprints para previsão de planejamento</td></tr>
+      <tr><td>Burndown Chart</td><td>Acompanhamento diário do trabalho restante</td><td>Linha ideal vs real expõe atrasos ou acelerações</td></tr>
+      <tr><td>Lead Time</td><td>Tempo total para entregar uma funcionalidade</td><td>Filtrar por prioridade para identificar ineficiências</td></tr>
+      <tr><td>Cycle Time</td><td>Tempo de start até definição de pronto</td><td>Meta: reduzir variação para fluxo previsível</td></tr>
     </table>
+    <h4>Exemplo: Interpretação de Velocity</h4>
+    <p>Se o time entregue em média 30 SP por Sprint, um roadmap de 90 SP indica 3 Sprints (~6 semanas) para a próxima versão.</p>
+    <figure>
+      <img src="figuras/burndown_chart.png" alt="Exemplo de Burndown Chart">
+      <figcaption>Figura: Burndown Chart mostrando divergência entre progresso real e planejado</figcaption>
+    </figure>
+
+    <h2>3. Integração com Práticas de Engenharia</h2>
+    <p>Alinhar práticas técnicas garante incrementos de alta qualidade e acelera feedback.</p>
+    <h3>3.1 Test-Driven Development (TDD)</h3>
     <ul>
-      <li><strong>R (Responsible):</strong> quem executa a atividade.</li>
-      <li><strong>A (Accountable):</strong> quem aprova e responde pelo resultado.</li>
-      <li><strong>C (Consulted):</strong> especialistas que contribuem com informações.</li>
-      <li><strong>I (Informed):</strong> stakeholders que devem receber status.</li>
+      <li>Escrever testes antes do código: Red → Green → Refactor.</li>
+      <li>Manter cobertura de testes acima de 80% para áreas críticas.</li>
+      <li>Integrar análise estática (linters) e verificação de padrões (SonarQube).</li>
     </ul>
-    <h4>4.4 Workshops de Kick-Off e Encerramento</h4>
-    <p>Cerimônias estruturadas para iniciar e concluir projetos com alinhamento e aprendizado:</p>
+    <h3>3.2 Continuous Integration & Delivery (CI/CD)</h3>
     <ul>
-      <li><strong>Kick-Off:</strong>
-        <ul>
-          <li>Apresentação de objetivos, escopo e cronograma.</li>
-          <li>Quebra-gelo para integração da equipe.</li>
-          <li>Estabelecimento de regras de comunicação e ferramentas.</li>
-        </ul>
-      </li>
-      <li><strong>Encerramento:</strong>
-        <ul>
-          <li>Revisão dos entregáveis e aceitação formal.</li>
-          <li>Coleta de lições aprendidas e práticas recomendadas.</li>
-          <li>Celebrar conquistas e reconhecer contribuições.</li>
-        </ul>
-      </li>
+      <li>Configurar pipeline para builds automatizados e testes unitários em cada commit.</li>
+      <li>Deploy automático em ambientes de homologação, com gate de aprovação manual para produção.</li>
+      <li>Uso de feature toggles para liberar funcionalidades de forma controlada.</li>
     </ul>
 
-    <h2>5. Questões-Problema</h2>
+    <h2>4. Ferramentas de Suporte</h2>
+    <p>Selecionar ferramentas alinhadas às necessidades do time e processos.</p>
+    <table>
+      <tr><th>Ferramenta</th><th>Uso Principal</th><th>Recursos Destaque</th></tr>
+      <tr><td>Jira</td><td>Gestão de Backlog e Sprints</td><td>Scrum/Kanban boards, relatórios de burndown, customização de workflows</td></tr>
+      <tr><td>Azure DevOps</td><td>Boards e CI/CD integrados</td><td>Repos git, pipelines YAML, test plans, dashboards analíticos</td></tr>
+      <tr><td>GitLab</td><td>DevOps completo</td><td>Issues, CI/CD pipelines, code review, security scanning</td></tr>
+    </table>
+
+    <h2>5. Questões-Problema e Discussão</h2>
     <div class="questoes">
       <ol>
-        <li>Elabore um Termo de Abertura para um projeto de migração de dados com escopo, objetivos e stakeholders.</li>
-        <li>Desenhe uma EAP simplificada para implementação de sistema de e-commerce.</li>
-        <li>Calcule o valor esperado e variância de um cronograma com 3 atividades usando PERT.</li>
-        <li>Projete uma matriz RACI para o processo de liberação de software em produção.</li>
-        <li>Crie um exemplo de plano de resposta para um risco de fornecimento impactando prazo e custo.</li>
+        <li>Em um ambiente Nexus com 5 times, identifique e proponha solução para um impedimento que aparece na integração contínua.</li>
+        <li>Considerando variações de Velocity, como você ajustaria o roadmap se o time apresentar inconstâncias de ±20%?</li>
+        <li>Durante o Refinamento, uma story crítica não tem critérios claros: que perguntas o time deve fazer ao PO e como documentar a resposta?</li>
+        <li>Num pipeline CI/CD falho em testes de integração, descreva abordagem para investigação e correção sem bloquear a cadência de entrega.</li>
+        <li>Analise os pontos fortes e fracos das ferramentas apresentadas; proponha critérios para escolher a mais adequada para uma equipe de 50 desenvolvedores.</li>
       </ol>
     </div>
 
