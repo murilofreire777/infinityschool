@@ -1,0 +1,170 @@
+<!-- ================================
+Arquivo: aula02.html
+Descrição: Aula 02 — Estruturas Condicionais (if, else e elif)
+Baseado na ementa fornecida.
+================================ -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aula 02 — Estruturas Condicionais</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body class="theme-auto">
+  <header class="topbar">
+    <div class="container row between center-gap">
+      <div class="brand">
+        <span class="logo">{} </span>
+        <strong>Lógica da Programação 2025</strong>
+        <span class="muted">Aula 02</span>
+      </div>
+      <nav class="actions row gap-sm">
+        <button class="btn btn-ghost" id="btnToggleTheme">🌗</button>
+        <button class="btn btn-ghost" id="btnIncreaseFont">A+</button>
+        <button class="btn btn-ghost" id="btnDecreaseFont">A−</button>
+        <button class="btn" id="btnPrint">🖨️ PDF</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container grid grid-12 gap-lg main-layout">
+    <aside class="card sidebar">
+      <div class="card-header">
+        <h2 class="card-title">Sumário</h2>
+      </div>
+      <div class="card-content">
+        <input type="search" id="tocSearch" class="input" placeholder="Filtrar tópicos" />
+        <nav id="toc" class="toc"></nav>
+      </div>
+    </aside>
+
+    <section class="content col-span-9">
+      <section class="hero" data-section-title="Abertura">
+        <h1>Aula 02 — Estruturas Condicionais</h1>
+        <p class="lead">Aprendendo a tomar decisões em Python com <code>if</code>, <code>else</code> e <code>elif</code>.</p>
+        <div class="grid grid-12 gap-md mt-md">
+          <div class="col-span-6">
+            <div class="card">
+              <div class="card-header"><h3 class="card-title">Objetivos</h3></div>
+              <div class="card-content">
+                <ul class="list check">
+                  <li>Aprender a utilizar estruturas condicionais para decisões.</li>
+                  <li>Compreender a lógica por trás de <code>if</code>, <code>else</code> e <code>elif</code>.</li>
+                  <li>Aplicar lógica booleana em programas.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-6">
+            <div class="card">
+              <div class="card-header"><h3 class="card-title">Agenda</h3></div>
+              <div class="card-content">
+                <ol class="list ordered">
+                  <li>Conceito de condição</li>
+                  <li>Estrutura <code>if</code></li>
+                  <li>Uso de <code>else</code> e <code>elif</code></li>
+                  <li>Operadores lógicos</li>
+                  <li>Aninhamento</li>
+                  <li>Prática</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section data-section-title="Condição">
+        <h2>O que é uma condição?</h2>
+        <p>Condição é uma expressão que pode ser avaliada como <code>True</code> ou <code>False</code>, controlando o fluxo do programa.</p>
+        <div class="codeblock" data-lang="python">
+          <pre><code>x = 10
+print(x &gt; 5)   # True
+print(x == 0)  # False</code></pre>
+        </div>
+
+        <div class="callout success mt-md">
+          <strong>Exercício 1:</strong> Crie uma condição para verificar se um número é maior que 100.
+        </div>
+      </section>
+
+      <section data-section-title="If Else Elif">
+        <h2>Usando <code>if</code>, <code>else</code> e <code>elif</code></h2>
+        <div class="codeblock" data-lang="python">
+          <pre><code>nota = 7
+if nota &gt;= 6:
+    print("Aprovado")
+else:
+    print("Reprovado")
+
+idade = 18
+if idade &lt; 12:
+    print("Criança")
+elif idade &lt; 18:
+    print("Adolescente")
+else:
+    print("Adulto")</code></pre>
+        </div>
+
+        <div class="callout success mt-md">
+          <strong>Exercício 2:</strong> Crie um programa que leia um número e diga se ele é positivo, negativo ou zero.
+        </div>
+      </section>
+
+      <section data-section-title="Operadores Lógicos">
+        <h2>Operadores Lógicos</h2>
+        <ul class="list">
+          <li><code>and</code> — verdadeiro se ambas condições forem verdadeiras</li>
+          <li><code>or</code> — verdadeiro se pelo menos uma condição for verdadeira</li>
+          <li><code>not</code> — inverte o valor lógico</li>
+        </ul>
+        <div class="codeblock" data-lang="python">
+          <pre><code>x = 10
+y = 20
+print(x &gt; 5 and y &gt; 5)   # True
+print(x &gt; 15 or y &gt; 15)  # True
+print(not(x &gt; 5))        # False</code></pre>
+        </div>
+      </section>
+
+      <section data-section-title="Exercícios Finais">
+        <h2>Exercícios Finais</h2>
+        <ol class="list ordered">
+          <li>Escreva um programa que verifica se um número é par ou ímpar.</li>
+          <li>Crie um sistema de aprovação baseado na média de duas notas.</li>
+          <li>Faça um programa que leia a idade e diga se a pessoa pode votar.</li>
+          <li>Crie um programa que peça um login e senha e valide as credenciais.</li>
+          <li>Escreva um programa que leia 3 números e indique o maior.</li>
+        </ol>
+      </section>
+
+      <section data-section-title="Quiz">
+        <h2>Quiz Rápido</h2>
+        <form class="quiz" data-quiz>
+          <fieldset class="quiz-item">
+            <legend>1) Qual operador representa a negação?</legend>
+            <label><input type="radio" name="q1" value="a"> and</label>
+            <label><input type="radio" name="q1" value="b"> or</label>
+            <label><input type="radio" name="q1" value="c" data-correct> not</label>
+          </fieldset>
+          <fieldset class="quiz-item">
+            <legend>2) Qual palavra é usada para múltiplas condições?</legend>
+            <label><input type="radio" name="q2" value="a"> else</label>
+            <label><input type="radio" name="q2" value="b" data-correct> elif</label>
+          </fieldset>
+          <button type="button" class="btn" id="btnCorrigir">Corrigir</button>
+          <output id="quizResultado"></output>
+        </form>
+      </section>
+
+      <section data-section-title="Encerramento">
+        <div class="callout neutral">
+          <strong>Resumo:</strong> Você aprendeu a usar estruturas condicionais <code>if</code>, <code>else</code> e <code>elif</code>, além dos operadores lógicos no Python.
+        </div>
+      </section>
+    </section>
+  </main>
+  <div class="reading-progress"><span></span></div>
+  <script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,278 @@
+<!-- ================================
+Arquivo: index.html
+Descrição: Template básico de aula com exemplos de estruturas reutilizáveis.
+Instruções: salve também os arquivos "styles.css" e "script.js" no mesmo diretório.
+================================ -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Curso de Programação — Aula (Template)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="theme-auto">
+  <!-- Barra superior -->
+  <header class="topbar">
+    <div class="container row between center-gap">
+      <div class="brand">
+        <span class="logo" aria-hidden="true">{} </span>
+        <strong>Curso de Programação</strong>
+        <span class="muted">Template de Aula</span>
+      </div>
+      <nav class="actions row gap-sm">
+        <button class="btn btn-ghost" id="btnToggleTheme" title="Alternar tema">🌗</button>
+        <button class="btn btn-ghost" id="btnIncreaseFont" title="Aumentar fonte">A+</button>
+        <button class="btn btn-ghost" id="btnDecreaseFont" title="Diminuir fonte">A−</button>
+        <button class="btn" id="btnPrint" title="Imprimir/Salvar PDF">🖨️ PDF</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Layout principal com painel lateral e conteúdo -->
+  <main class="container grid grid-12 gap-lg main-layout">
+    <!-- Painel lateral (sumário) -->
+    <aside class="card sidebar">
+      <div class="card-header">
+        <h2 class="card-title">Sumário</h2>
+      </div>
+      <div class="card-content">
+        <input type="search" id="tocSearch" class="input" placeholder="Filtrar tópicos (Ctrl+/)" aria-label="Filtrar tópicos" />
+        <nav id="toc" class="toc">
+          <!-- Itens do sumário são gerados automaticamente por data-spy="section" -->
+        </nav>
+        <details class="mt-md">
+          <summary class="bold">Metadados da aula</summary>
+          <ul class="list dotted">
+            <li><strong>Turma:</strong> <em>Ex.: 2025.1 — Noite</em></li>
+            <li><strong>Professor(a):</strong> <em>Seu nome</em></li>
+            <li><strong>Duração:</strong> 2h</li>
+            <li><strong>Pré-requisitos:</strong> Nenhum</li>
+          </ul>
+        </details>
+      </div>
+    </aside>
+
+    <!-- Conteúdo -->
+    <section class="content col-span-9">
+
+      <!-- Banner e objetivos -->
+      <section class="hero" data-section-title="Abertura">
+        <h1>Aula X — Título da Aula</h1>
+        <p class="lead">Subtítulo/descrição curta da aula. Explique em 1–2 frases o que será visto.</p>
+        <div class="grid grid-12 gap-md mt-md">
+          <div class="col-span-6">
+            <div class="card">
+              <div class="card-header"><h3 class="card-title">Objetivos</h3></div>
+              <div class="card-content">
+                <ul class="list check">
+                  <li>Compreender &lt;conceito-chave&gt;.</li>
+                  <li>Aplicar &lt;técnica&gt; em pequenos exemplos.</li>
+                  <li>Avaliar resultados e evitar erros comuns.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-6">
+            <div class="card">
+              <div class="card-header"><h3 class="card-title">Agenda</h3></div>
+              <div class="card-content">
+                <ol class="list ordered">
+                  <li>Contexto e motivação</li>
+                  <li>Conceitos essenciais</li>
+                  <li>Exemplos guiados</li>
+                  <li>Prática e desafios</li>
+                  <li>Encerramento</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Blocos de conteúdo demonstrando estruturas reutilizáveis -->
+      <section class="mt-xl" data-section-title="Conceitos">
+        <h2>Conceitos Fundamentais</h2>
+        <div class="callout info">
+          <strong>Dica:</strong> Use este bloco para observações importantes, pré-requisitos ou links de apoio.
+        </div>
+
+        <article class="card">
+          <div class="card-header"><h3 class="card-title">Definições</h3></div>
+          <div class="card-content">
+            <p>Exemplo de parágrafo com <code>inline code</code> e um link para referência.
+              Você pode usar <span class="tag">.tag</span> para destacar termos.</p>
+            <ul class="list">
+              <li><span class="tag">Algoritmo</span>: sequência finita de etapas para resolver um problema.</li>
+              <li><span class="tag">Variável</span>: espaço nomeado para armazenar valores.</li>
+              <li><span class="tag">Tipo de dado</span>: define a natureza do valor (ex.: inteiro, string).</li>
+            </ul>
+          </div>
+        </article>
+
+        <div class="grid grid-12 gap-md mt-md">
+          <div class="col-span-6">
+            <div class="callout success">
+              <strong>Exemplo Rápido:</strong> Fluxo de um algoritmo simples com lista numerada.
+              <ol class="list ordered compact">
+                <li>Ler dois números</li>
+                <li>Somar</li>
+                <li>Exibir resultado</li>
+              </ol>
+            </div>
+          </div>
+          <div class="col-span-6">
+            <div class="callout warn">
+              <strong>Cuidado:</strong> Indentação incorreta causa erros em Python. Mantenha 4 espaços.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Código com botão de copiar -->
+      <section class="mt-xl" data-section-title="Exemplos de Código">
+        <h2>Exemplos de Código</h2>
+
+        <div class="codeblock" data-lang="python">
+          <div class="codeblock-header">
+            <span>Python — exemplo: soma simples</span>
+            <button class="btn btn-ghost btn-copy" data-copy-target="#ex1">Copiar</button>
+          </div>
+          <pre id="ex1"><code>def somar(a, b):
+    return a + b
+
+x = int(input("Digite o primeiro número: "))
+y = int(input("Digite o segundo número: "))
+print("Soma:", somar(x, y))
+</code></pre>
+        </div>
+
+        <details class="mt-md">
+          <summary class="bold">Boas práticas para exemplos</summary>
+          <ul class="list dotted">
+            <li>Comece com um objetivo claro.</li>
+            <li>Mostre casos de uso mínimos e depois aumente a complexidade.</li>
+            <li>Inclua <em>inputs</em> diferentes: válidos, inválidos e limites.</li>
+          </ul>
+        </details>
+      </section>
+
+      <!-- Imagens com modal -->
+      <section class="mt-xl" data-section-title="Imagens e Figuras">
+        <h2>Imagens e Figuras</h2>
+        <p>Use a classe <code>.figure</code> para imagens com legenda. Clique para ampliar.</p>
+        <figure class="figure">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/PC_keyboard.jpg/640px-PC_keyboard.jpg" alt="Teclado de computador" data-zoomable>
+          <figcaption>Figura 1 — Exemplo de periférico de entrada.</figcaption>
+        </figure>
+      </section>
+
+      <!-- Listas de exercícios e desafios -->
+      <section class="mt-xl" data-section-title="Exercícios">
+        <h2>Exercícios</h2>
+        <div class="card">
+          <div class="card-header row between center">
+            <h3 class="card-title">Lista 1 — Fundamentos</h3>
+            <button class="btn btn-ghost" data-collapse="#ex-list-1">Recolher</button>
+          </div>
+          <div class="card-content" id="ex-list-1">
+            <ol class="list ordered">
+              <li>Escreva um algoritmo para calcular a área de um retângulo.</li>
+              <li>Crie um programa que receba nome e idade e exiba uma saudação.</li>
+              <li>Implemente um verificador de par/ímpar com <code>if</code>.</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="grid grid-12 gap-md mt-md">
+          <div class="col-span-6">
+            <div class="callout tip">
+              <strong>Desafio:</strong> Monte um <em>menu</em> interativo com <code>while</code> para várias operações.
+            </div>
+          </div>
+          <div class="col-span-6">
+            <div class="callout info">
+              <strong>Referência:</strong> Consulte o guia rápido de operadores no fim da página.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Quiz rápido -->
+      <section class="mt-xl" data-section-title="Quiz Rápido">
+        <h2>Quiz Rápido</h2>
+        <form class="quiz" data-quiz>
+          <fieldset class="quiz-item">
+            <legend>1) Qual é a saída de <code>bool(0)</code>?</legend>
+            <label><input type="radio" name="q1" value="a"> True</label>
+            <label><input type="radio" name="q1" value="b" data-correct> False</label>
+          </fieldset>
+          <fieldset class="quiz-item">
+            <legend>2) Em Python, a indentação padrão recomendada é de:</legend>
+            <label><input type="radio" name="q2" value="a"> 2 espaços</label>
+            <label><input type="radio" name="q2" value="b" data-correct> 4 espaços</label>
+            <label><input type="radio" name="q2" value="c"> tabulação</label>
+          </fieldset>
+          <button type="button" class="btn" id="btnCorrigir">Corrigir</button>
+          <output id="quizResultado" class="mt-sm block"></output>
+        </form>
+      </section>
+
+      <!-- Quadro de referências/colunas -->
+      <section class="mt-xl" data-section-title="Referências e Glossário">
+        <h2>Referências e Glossário</h2>
+        <div class="grid grid-12 gap-md">
+          <div class="col-span-7">
+            <div class="card">
+              <div class="card-header"><h3 class="card-title">Referências</h3></div>
+              <div class="card-content">
+                <ul class="list">
+                  <li>Documentação Python — <a href="https://docs.python.org/pt-br/3/" target="_blank" rel="noreferrer">docs.python.org</a></li>
+                  <li>PEP 8 — Guia de estilo para Python</li>
+                  <li>Algoritmos e Lógica — Material da disciplina</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-5">
+            <div class="card">
+              <div class="card-header"><h3 class="card-title">Glossário</h3></div>
+              <div class="card-content">
+                <dl class="glossary">
+                  <dt>Entrada</dt>
+                  <dd>Dados fornecidos pelo usuário ao programa.</dd>
+                  <dt>Saída</dt>
+                  <dd>Resultados exibidos pelo programa.</dd>
+                  <dt>Indentação</dt>
+                  <dd>Espaços usados para definir blocos de código.</dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Rodapé pedagógico -->
+      <section class="mt-xl" data-section-title="Encerramento">
+        <div class="callout neutral">
+          <strong>Encerramento:</strong> Reforce os objetivos atingidos, indique leituras e proponha um exercício para casa.
+        </div>
+      </section>
+
+    </section>
+  </main>
+
+  <!-- Modal de imagem -->
+  <dialog id="imgModal" class="img-modal">
+    <button class="btn btn-ghost img-modal-close" data-close>✕</button>
+    <img id="imgModalSrc" alt="Pré-visualização" />
+    <p id="imgModalCaption" class="muted"></p>
+  </dialog>
+
+  <!-- Barra de progresso de leitura -->
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+

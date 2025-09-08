@@ -1,0 +1,176 @@
+
+/* ================================
+Arquivo: styles.css
+Descrição: Estilos utilitários e componentes reutilizáveis para aulas.
+Estrutura:
+  1) Reset e variáveis
+  2) Utilitários (spacing, grid, display)
+  3) Layout (topbar, container, main)
+  4) Componentes (card, callout, codeblock, figure, quiz)
+  5) Tipografia e listas
+  6) Acessibilidade e helpers
+================================ */
+
+:root {
+  --bg: #0b0e14;
+  --bg-soft: #121826;
+  --surface: #1b2333;
+  --text: #e6edf7;
+  --muted: #9aa4b2;
+  --primary: #6ea8fe;
+  --success: #66d19e;
+  --warn: #ffdf6b;
+  --danger: #ff8a8a;
+  --info: #7cd1ff;
+  --neutral: #cfd8e3;
+  --border: #2a3346;
+  --shadow: 0 6px 22px rgba(0,0,0,.25);
+  --radius: 14px;
+  --radius-sm: 10px;
+  --gap: 16px;
+  --font-size: 16px;
+}
+
+/* Tema claro */
+:root.light {
+  --bg: #f7fafc;
+  --bg-soft: #ffffff;
+  --surface: #ffffff;
+  --text: #0f172a;
+  --muted: #475569;
+  --primary: #2563eb;
+  --success: #16a34a;
+  --warn: #d97706;
+  --danger: #dc2626;
+  --info: #0ea5e9;
+  --neutral: #334155;
+  --border: #e2e8f0;
+  --shadow: 0 6px 22px rgba(2,6,23,.12);
+}
+
+/* Reset mínimo */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 500 var(--font-size)/1.55 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+img { max-width: 100%; display: block; }
+a { color: var(--primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Utilitários */
+.container { width: min(1200px, 92%); margin-inline: auto; }
+.row { display: flex; }
+.gap-sm { gap: 8px; }
+.gap-md { gap: 12px; }
+.gap-lg { gap: 20px; }
+.center { align-items: center; }
+.center-gap { gap: 10px; align-items: center; }
+.between { justify-content: space-between; }
+.block { display: block; }
+.mt-sm { margin-top: 8px; }
+.mt-md { margin-top: 16px; }
+.mt-lg { margin-top: 24px; }
+.mt-xl { margin-top: 40px; }
+.bold { font-weight: 700; }
+.muted { color: var(--muted); }
+.tag {
+  display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: .8rem; background: var(--surface); border: 1px solid var(--border); color: var(--muted);
+}
+
+/***** Grid *****/
+.grid { display: grid; }
+.grid-12 { grid-template-columns: repeat(12, 1fr); }
+.col-span-5 { grid-column: span 5; }
+.col-span-6 { grid-column: span 6; }
+.col-span-7 { grid-column: span 7; }
+.col-span-9 { grid-column: span 9; }
+
+@media (max-width: 960px) {
+  .grid-12 { grid-template-columns: 1fr; }
+  .col-span-5, .col-span-6, .col-span-7, .col-span-9 { grid-column: auto; }
+}
+
+/***** Layout *****/
+.topbar {
+  position: sticky; top: 0; z-index: 30; background: var(--bg-soft); border-bottom: 1px solid var(--border);
+}
+.brand { display: flex; align-items: baseline; gap: 10px; }
+.logo { font-weight: 800; }
+.main-layout { margin-top: 18px; }
+.sidebar { position: sticky; top: 68px; height: max-content; }
+.content { min-height: 60vh; }
+
+/***** Componentes *****/
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.card-header { padding: 12px 16px; border-bottom: 1px solid var(--border); }
+.card-title { margin: 0; font-size: 1rem; }
+.card-content { padding: 16px; }
+
+.btn {
+  border: 1px solid var(--border); background: var(--surface); color: var(--text); padding: 8px 12px; border-radius: var(--radius-sm); cursor: pointer;
+}
+.btn:hover { filter: brightness(1.1); }
+.btn-ghost { background: transparent; }
+.input { width: 100%; padding: 10px 12px; border-radius: var(--radius-sm); border: 1px solid var(--border); background: var(--bg-soft); color: var(--text); }
+
+.callout {
+  border-left: 4px solid var(--neutral); background: linear-gradient(90deg, rgba(255,255,255,.02), transparent); padding: 12px 14px; border-radius: var(--radius);
+}
+.callout.info { border-left-color: var(--info); }
+.callout.tip { border-left-color: var(--primary); }
+.callout.success { border-left-color: var(--success); }
+.callout.warn { border-left-color: var(--warn); }
+.callout.neutral { border-left-color: var(--neutral); }
+
+.codeblock { border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; background: #0b0e14; }
+.codeblock-header { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 10px 12px; border-bottom: 1px solid var(--border); background: #0f1420; }
+.codeblock pre { margin: 0; padding: 14px; overflow: auto; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; font-size: .95rem; color: #e6edf7; }
+
+.figure { border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+.figure figcaption { padding: 10px 12px; border-top: 1px solid var(--border); color: var(--muted); background: var(--bg-soft); }
+.figure img { cursor: zoom-in; }
+
+.toc { margin-top: 10px; display: grid; gap: 6px; }
+.toc a { display: block; padding: 6px 8px; border-radius: 8px; border: 1px solid transparent; }
+.toc a.active { border-color: var(--primary); background: rgba(110,168,254,.12); }
+
+.quiz .quiz-item { border: 1px dashed var(--border); border-radius: var(--radius-sm); padding: 10px 12px; margin-bottom: 12px; }
+.quiz label { display: block; margin-top: 6px; }
+
+/***** Tipografia e listas *****/
+.lead { font-size: 1.125rem; color: var(--muted); }
+.list { padding-left: 18px; }
+.list.compact li { margin-bottom: 6px; }
+.list.ordered { list-style: decimal; }
+.list.check { list-style: none; }
+.list.check li { position: relative; padding-left: 26px; margin: 10px 0; }
+.list.check li::before { content: "✔"; position: absolute; left: 0; top: 0; color: var(--success); }
+.list.dotted { list-style: disc; }
+
+.glossary dt { font-weight: 700; }
+.glossary dd { margin: 0 0 10px 0; color: var(--muted); }
+
+/***** Leitura/Progresso *****/
+.reading-progress { position: fixed; left: 0; right: 0; top: 0; height: 3px; background: transparent; z-index: 40; }
+.reading-progress span { display: block; height: 100%; width: 0%; background: var(--primary); transition: width .1s linear; }
+
+/***** Modal de imagem *****/
+.img-modal::backdrop { background: rgba(0,0,0,.6); }
+.img-modal { border: none; border-radius: var(--radius); padding: 0; background: var(--surface); color: var(--text); }
+.img-modal img { max-width: min(92vw, 900px); height: auto; display: block; }
+.img-modal .img-modal-close { position: absolute; right: 8px; top: 8px; }
+
+/***** Acessibilidade e helpers *****/
+:focus-visible { outline: 2px dashed var(--primary); outline-offset: 3px; }
+[hidden] { display: none !important; }
+
+

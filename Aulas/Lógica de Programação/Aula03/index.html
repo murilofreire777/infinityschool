@@ -1,0 +1,248 @@
+<!-- ================================
+Arquivo: aula03.html
+Descrição: Aula 03 — Estrutura de Repetição While
+Baseado na ementa fornecida.
+================================ -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aula 03 — Estrutura de Repetição While</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body class="theme-auto">
+  <header class="topbar">
+    <div class="container row between center-gap">
+      <div class="brand">
+        <span class="logo">{} </span>
+        <strong>Lógica da Programação 2025</strong>
+        <span class="muted">Aula 03</span>
+      </div>
+      <nav class="actions row gap-sm">
+        <button class="btn btn-ghost" id="btnToggleTheme">🌗</button>
+        <button class="btn btn-ghost" id="btnIncreaseFont">A+</button>
+        <button class="btn btn-ghost" id="btnDecreaseFont">A−</button>
+        <button class="btn" id="btnPrint">🖨️ PDF</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container grid grid-12 gap-lg main-layout">
+    <aside class="card sidebar">
+      <div class="card-header">
+        <h2 class="card-title">Sumário</h2>
+      </div>
+      <div class="card-content">
+        <input type="search" id="tocSearch" class="input" placeholder="Filtrar tópicos" />
+        <nav id="toc" class="toc"></nav>
+      </div>
+    </aside>
+
+    <section class="content col-span-9">
+      <section class="hero" data-section-title="Abertura">
+        <h1>Aula 03 — Estrutura de Repetição <code>while</code></h1>
+        <p class="lead">Laços permitem repetir instruções até que uma condição deixe de ser verdadeira.</p>
+        <div class="grid grid-12 gap-md mt-md">
+          <div class="col-span-6">
+            <div class="card">
+              <div class="card-header"><h3 class="card-title">Objetivos</h3></div>
+              <div class="card-content">
+                <ul class="list check">
+                  <li>Entender quando e por que usar laços.</li>
+                  <li>Compreender a estrutura e o fluxo do <code>while</code>.</li>
+                  <li>Usar contadores e acumuladores com segurança.</li>
+                  <li>Evitar loops infinitos e validar entradas.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-6">
+            <div class="card">
+              <div class="card-header"><h3 class="card-title">Agenda</h3></div>
+              <div class="card-content">
+                <ol class="list ordered">
+                  <li>Motivação e conceito de loop</li>
+                  <li>Estrutura do <code>while</code></li>
+                  <li>Contadores e acumuladores</li>
+                  <li><code>break</code> e <code>continue</code></li>
+                  <li>Validação de entrada / sentinela</li>
+                  <li>Prática</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section data-section-title="Conceito">
+        <h2>Motivação: por que loops?</h2>
+        <p>Repetição manual é propensa a erros. Loops automatizam tarefas repetitivas, economizando tempo e reduzindo falhas.</p>
+        <div class="codeblock" data-lang="python">
+          <div class="codeblock-header"><span>Contando de 1 a 5</span></div>
+          <pre><code>i = 1
+while i &lt;= 5:
+    print(i)
+    i += 1  # contador evita loop infinito
+</code></pre>
+        </div>
+      </section>
+
+      <section data-section-title="Estrutura While">
+        <h2>Estrutura do <code>while</code></h2>
+        <p>Enquanto a condição for <code>True</code>, o bloco repete.</p>
+        <div class="codeblock" data-lang="python">
+          <div class="codeblock-header"><span>Esqueleto</span></div>
+          <pre><code>while condição:
+    # bloco repetido
+    # atualização de variáveis (contador/acumulador)
+</code></pre>
+        </div>
+        <div class="codeblock mt-md" data-lang="python">
+          <div class="codeblock-header"><span>Senha até acertar (simples)</span></div>
+          <pre><code>senha_certa = "python123"
+senha = input("Senha: ")
+while senha != senha_certa:
+    print("Senha incorreta. Tente novamente.")
+    senha = input("Senha: ")
+print("Acesso liberado!")
+</code></pre>
+        </div>
+        <div class="callout success mt-md">
+          <strong>Exercício 1:</strong> Peça ao usuário um número entre 1 e 10. Enquanto o valor for inválido, repita o pedido.
+        </div>
+      </section>
+
+      <section data-section-title="Contador Acumulador">
+        <h2>Contadores e Acumuladores</h2>
+        <p><span class="tag">contador</span> soma 1 a cada ciclo; <span class="tag">acumulador</span> soma um valor variável.</p>
+        <div class="grid grid-12 gap-md mt-md">
+          <div class="col-span-6">
+            <div class="codeblock" data-lang="python">
+              <div class="codeblock-header"><span>Contador de pares até 20</span></div>
+              <pre><code>i = 0
+while i &lt;= 20:
+    print(i)
+    i += 2  # contador em passos de 2
+</code></pre>
+            </div>
+          </div>
+          <div class="col-span-6">
+            <div class="codeblock" data-lang="python">
+              <div class="codeblock-header"><span>Somatório com sentinela (0 encerra)</span></div>
+              <pre><code>total = 0
+n = float(input("Número (0 para sair): "))
+while n != 0:
+    total += n  # acumulador
+    n = float(input("Número (0 para sair): "))
+print("Soma:", total)
+</code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="callout success mt-md">
+          <strong>Exercício 2:</strong> Leia vários preços e calcule o total e a média; pare quando o usuário digitar um valor negativo.
+        </div>
+      </section>
+
+      <section data-section-title="Break Continue">
+        <h2>Controle de fluxo: <code>break</code> e <code>continue</code></h2>
+        <div class="grid grid-12 gap-md">
+          <div class="col-span-6">
+            <div class="codeblock" data-lang="python">
+              <div class="codeblock-header"><span>Interrompendo com break</span></div>
+              <pre><code>i = 1
+while True:
+    if i &gt; 5:
+        break  # sai do laço
+    print(i)
+    i += 1
+</code></pre>
+            </div>
+          </div>
+          <div class="col-span-6">
+            <div class="codeblock" data-lang="python">
+              <div class="codeblock-header"><span>Pulando pares com continue</span></div>
+              <pre><code>i = 0
+while i &lt; 10:
+    i += 1
+    if i % 2 == 0:
+        continue  # pula o restante do ciclo
+    print(i)  # imprime apenas ímpares
+</code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section data-section-title="Validacao Entrada">
+        <h2>Validação de entrada e prevenção de loops infinitos</h2>
+        <div class="codeblock" data-lang="python">
+          <div class="codeblock-header"><span>While com tentativas</span></div>
+          <pre><code>tentativas = 3
+while tentativas &gt; 0:
+    pin = input("PIN: ")
+    if pin == "1234":
+        print("OK")
+        break
+    tentativas -= 1
+    print("Restam", tentativas, "tentativas")
+else:
+    print("Cartão bloqueado")  # executa se não houver break
+</code></pre>
+        </div>
+        <div class="codeblock mt-md" data-lang="python">
+          <div class="codeblock-header"><span>Loop robusto com conversão segura</span></div>
+          <pre><code>while True:
+    txt = input("Digite um inteiro: ")
+    if txt.isdigit():
+        n = int(txt)
+        print("Você digitou:", n)
+        break
+    print("Valor inválido.")
+</code></pre>
+        </div>
+      </section>
+
+      <section data-section-title="Exercicios Finais">
+        <h2>Exercícios Finais</h2>
+        <ol class="list ordered">
+          <li>Peça números inteiros até que 0 seja digitado; exiba soma e quantidade.</li>
+          <li>Tabuada: leia um número e mostre multiplicações de 1 a 10 usando <code>while</code>.</li>
+          <li>Jogo de adivinhação: o usuário tenta acertar um número secreto de 1 a 50; informe "maior"/"menor" até acertar.</li>
+          <li>Menu: 1) somar, 2) subtrair, 0) sair — repita até o usuário escolher sair.</li>
+          <li>Validação: leia nota entre 0 e 10; continue pedindo até receber um valor válido, então mostre a nota.</li>
+        </ol>
+      </section>
+
+      <section data-section-title="Quiz">
+        <h2>Quiz Rápido</h2>
+        <form class="quiz" data-quiz>
+          <fieldset class="quiz-item">
+            <legend>1) O laço <code>while</code> executa enquanto...</legend>
+            <label><input type="radio" name="q1" value="a"> o bloco não tiver erros</label>
+            <label><input type="radio" name="q1" value="b" data-correct> a condição for verdadeira</label>
+            <label><input type="radio" name="q1" value="c"> houver entradas do usuário</label>
+          </fieldset>
+          <fieldset class="quiz-item">
+            <legend>2) Qual instrução <em>interrompe</em> o laço imediatamente?</legend>
+            <label><input type="radio" name="q2" value="a"> continue</label>
+            <label><input type="radio" name="q2" value="b" data-correct> break</label>
+            <label><input type="radio" name="q2" value="c"> pass</label>
+          </fieldset>
+          <button type="button" class="btn" id="btnCorrigir">Corrigir</button>
+          <output id="quizResultado"></output>
+        </form>
+      </section>
+
+      <section data-section-title="Encerramento">
+        <div class="callout neutral">
+          <strong>Resumo:</strong> Você praticou <code>while</code> com contadores, acumuladores, sentinelas e controle de fluxo, evitando loops infinitos.
+        </div>
+      </section>
+    </section>
+  </main>
+  <div class="reading-progress"><span></span></div>
+  <script src="../script.js"></script>
+</body>
+</html>

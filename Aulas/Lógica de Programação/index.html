@@ -1,0 +1,61 @@
+<!-- ================================
+Arquivo: index.html
+Descrição: Página de índice do módulo — links para as aulas.
+Estrutura de diretórios:
+  /index.html
+  /styles.css
+  /script.js
+  /Aula01/aula01.html
+  /Aula02/aula02.html
+  ...
+================================ -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Módulo — Lógica da Programação 2025</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="theme-auto">
+  <header class="topbar">
+    <div class="container row between center-gap">
+      <div class="brand">
+        <span class="logo">{} </span>
+        <strong>Lógica da Programação 2025</strong>
+        <span class="muted">Índice</span>
+      </div>
+      <nav class="actions row gap-sm">
+        <button class="btn btn-ghost" id="btnToggleTheme">🌗</button>
+        <button class="btn btn-ghost" id="btnIncreaseFont">A+</button>
+        <button class="btn btn-ghost" id="btnDecreaseFont">A−</button>
+        <button class="btn" id="btnPrint">🖨️ PDF</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mt-xl">
+    <section class="card">
+      <div class="card-header"><h2 class="card-title">Índice das Aulas</h2></div>
+      <div class="card-content">
+        <p>Selecione uma aula abaixo para acessar o conteúdo completo.</p>
+        <ol class="list ordered">
+          <li><a href="Aula01/index.html">Aula 01 — Algoritmos, Introdução à Lógica e Tipos de Dados</a></li>
+          <li><a href="Aula02/index.html">Aula 02 — Estruturas Condicionais (if, else e elif)</a></li>
+          <li><a href="Aula03/index.html">Aula 03 — Estrutura de Repetição While</a></li>
+          <li><a href="Aula04/index.html">Aula 04 — Estrutura de Repetição For e Listas</a></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="mt-xl">
+      <div class="callout tip">
+        <strong>Dica:</strong> Utilize o menu superior para ajustar o tema, tamanho da fonte ou imprimir o material em PDF.
+      </div>
+    </section>
+  </main>
+
+  <div class="reading-progress"><span></span></div>
+  <script src="script.js"></script>
+</body>
+</html>

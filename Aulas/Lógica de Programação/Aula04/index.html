@@ -1,0 +1,235 @@
+<!-- ================================
+Arquivo: aula04.html
+Descrição: Aula 04 — Estrutura de Repetição For e Introdução a Listas
+Baseado na ementa fornecida.
+================================ -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aula 04 — For e Introdução a Listas</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body class="theme-auto">
+  <header class="topbar">
+    <div class="container row between center-gap">
+      <div class="brand">
+        <span class="logo">{} </span>
+        <strong>Lógica da Programação 2025</strong>
+        <span class="muted">Aula 04</span>
+      </div>
+      <nav class="actions row gap-sm">
+        <button class="btn btn-ghost" id="btnToggleTheme">🌗</button>
+        <button class="btn btn-ghost" id="btnIncreaseFont">A+</button>
+        <button class="btn btn-ghost" id="btnDecreaseFont">A−</button>
+        <button class="btn" id="btnPrint">🖨️ PDF</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container grid grid-12 gap-lg main-layout">
+    <aside class="card sidebar">
+      <div class="card-header">
+        <h2 class="card-title">Sumário</h2>
+      </div>
+      <div class="card-content">
+        <input type="search" id="tocSearch" class="input" placeholder="Filtrar tópicos" />
+        <nav id="toc" class="toc"></nav>
+      </div>
+    </aside>
+
+    <section class="content col-span-9">
+      <section class="hero" data-section-title="Abertura">
+        <h1>Aula 04 — Estrutura de Repetição <code>for</code> e Introdução a Listas</h1>
+        <p class="lead">Iterando de forma controlada com <code>for</code>, usando <code>range()</code>, strings e coleções. Prévia de listas.</p>
+        <div class="grid grid-12 gap-md mt-md">
+          <div class="col-span-6">
+            <div class="card">
+              <div class="card-header"><h3 class="card-title">Objetivos</h3></div>
+              <div class="card-content">
+                <ul class="list check">
+                  <li>Compreender a estrutura e o fluxo do <code>for</code>.</li>
+                  <li>Utilizar <code>range()</code> para laços contados.</li>
+                  <li>Iterar sobre strings e coleções.</li>
+                  <li>Introduzir operações básicas com listas.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-6">
+            <div class="card">
+              <div class="card-header"><h3 class="card-title">Agenda</h3></div>
+              <div class="card-content">
+                <ol class="list ordered">
+                  <li>Estrutura do <code>for</code></li>
+                  <li>Função <code>range()</code></li>
+                  <li>Iteração em strings e listas</li>
+                  <li><code>enumerate()</code> e <code>zip()</code> (breve)</li>
+                  <li>Introdução a listas</li>
+                  <li>Prática</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section data-section-title="For">
+        <h2>Estrutura do <code>for</code></h2>
+        <p>O <code>for</code> percorre cada item de uma sequência, atribuindo-o a uma variável de controle.</p>
+        <div class="codeblock" data-lang="python">
+          <div class="codeblock-header"><span>Contando de 1 a 5</span></div>
+          <pre><code>for i in range(1, 6):
+    print(i)
+</code></pre>
+        </div>
+        <div class="codeblock mt-md" data-lang="python">
+          <div class="codeblock-header"><span>Tabuada de 7</span></div>
+          <pre><code>n = 7
+for i in range(1, 11):
+    print(n, 'x', i, '=', n*i)
+</code></pre>
+        </div>
+        <div class="callout success mt-md">
+          <strong>Exercício 1:</strong> Leia um número do usuário e imprima a tabuada de 1 a 10 usando <code>for</code>.
+        </div>
+      </section>
+
+      <section data-section-title="Range">
+        <h2>Função <code>range(início, fim, passo)</code></h2>
+        <ul class="list">
+          <li><code>range(fim)</code> → 0 até <em>fim-1</em></li>
+          <li><code>range(início, fim)</code> → início até <em>fim-1</em></li>
+          <li><code>range(início, fim, passo)</code> → define salto</li>
+        </ul>
+        <div class="grid grid-12 gap-md mt-md">
+          <div class="col-span-6">
+            <div class="codeblock" data-lang="python">
+              <div class="codeblock-header"><span>Pares até 20</span></div>
+              <pre><code>for i in range(0, 21, 2):
+    print(i)
+</code></pre>
+            </div>
+          </div>
+          <div class="col-span-6">
+            <div class="codeblock" data-lang="python">
+              <div class="codeblock-header"><span>Contagem regressiva</span></div>
+              <pre><code>for i in range(5, 0, -1):
+    print(i)
+print("Vai!")
+</code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="callout success mt-md">
+          <strong>Exercício 2:</strong> Mostre apenas os múltiplos de 3 entre 1 e 30 usando <code>range</code> com passo.
+        </div>
+      </section>
+
+      <section data-section-title="Iteracao Sequencias">
+        <h2>Iterando sobre Strings e Listas</h2>
+        <div class="grid grid-12 gap-md mt-md">
+          <div class="col-span-6">
+            <div class="codeblock" data-lang="python">
+              <div class="codeblock-header"><span>String → caracteres</span></div>
+              <pre><code>texto = "Python"
+for ch in texto:
+    print(ch)
+</code></pre>
+            </div>
+          </div>
+          <div class="col-span-6">
+            <div class="codeblock" data-lang="python">
+              <div class="codeblock-header"><span>Lista → itens</span></div>
+              <pre><code>nomes = ["Ana", "Bia", "Caio"]
+for nome in nomes:
+    print("Olá,", nome)
+</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="codeblock mt-md" data-lang="python">
+          <div class="codeblock-header"><span>Com índice com enumerate()</span></div>
+          <pre><code>frutas = ["maçã", "banana", "uva"]
+for i, fruta in enumerate(frutas, start=1):
+    print(i, fruta)
+</code></pre>
+        </div>
+
+        <div class="codeblock mt-md" data-lang="python">
+          <div class="codeblock-header"><span>Iteração paralela com zip()</span></div>
+          <pre><code>alunos = ["Lia", "Rui", "Tom"]
+notas  = [8.5, 7.2, 9.1]
+for aluno, nota in zip(alunos, notas):
+    print(aluno, "→", nota)
+</code></pre>
+        </div>
+      </section>
+
+      <section data-section-title="Listas Intro">
+        <h2>Introdução a Listas</h2>
+        <p>Lista é uma coleção ordenada e mutável de elementos.</p>
+        <ul class="list dotted">
+          <li>Criação: <code>nums = [10, 20, 30]</code></li>
+          <li>Acesso: <code>nums[0]</code>, <code>nums[-1]</code></li>
+          <li>Atualização: <code>nums[1] = 99</code></li>
+          <li>Métodos: <code>append()</code>, <code>insert()</code>, <code>remove()</code>, <code>pop()</code>, <code>sort()</code></li>
+          <li>Tamanho: <code>len(nums)</code></li>
+        </ul>
+        <div class="codeblock" data-lang="python">
+          <div class="codeblock-header"><span>Operações básicas</span></div>
+          <pre><code>nums = []
+for n in range(1, 6):
+    nums.append(n)
+print(nums)        # [1, 2, 3, 4, 5]
+nums.pop()         # remove o último
+nums.insert(0, 99) # insere no início
+print(len(nums), nums)
+</code></pre>
+        </div>
+      </section>
+
+      <section data-section-title="Exercicios Finais">
+        <h2>Exercícios Finais</h2>
+        <ol class="list ordered">
+          <li>Imprima os números de 1 a 50 usando <code>for</code>. Em seguida, apenas os pares.</li>
+          <li>Peça uma palavra e mostre seus caracteres um por linha.</li>
+          <li>Leia 5 números e guarde numa lista; ao final, mostre o maior e o menor.</li>
+          <li>Usando duas listas (nomes e idades), imprima “&lt;nome&gt; — &lt;idade&gt; anos” com <code>zip()</code>.</li>
+          <li>Crie uma lista de notas e calcule a média. Depois, conte quantas notas ≥ 7.</li>
+        </ol>
+      </section>
+
+      <section data-section-title="Quiz">
+        <h2>Quiz Rápido</h2>
+        <form class="quiz" data-quiz>
+          <fieldset class="quiz-item">
+            <legend>1) <code>range(3)</code> gera:</legend>
+            <label><input type="radio" name="q1" value="a" data-correct> 0, 1, 2</label>
+            <label><input type="radio" name="q1" value="b"> 1, 2, 3</label>
+            <label><input type="radio" name="q1" value="c"> 0, 1, 2, 3</label>
+          </fieldset>
+          <fieldset class="quiz-item">
+            <legend>2) Para obter índice e valor ao iterar uma lista:</legend>
+            <label><input type="radio" name="q2" value="a"> zip()</label>
+            <label><input type="radio" name="q2" value="b" data-correct> enumerate()</label>
+            <label><input type="radio" name="q2" value="c"> items()</label>
+          </fieldset>
+          <button type="button" class="btn" id="btnCorrigir">Corrigir</button>
+          <output id="quizResultado"></output>
+        </form>
+      </section>
+
+      <section data-section-title="Encerramento">
+        <div class="callout neutral">
+          <strong>Resumo:</strong> Você praticou <code>for</code> com <code>range()</code>, iterou strings e listas, usou <code>enumerate()</code>/<code>zip()</code> e fez operações básicas com listas.
+        </div>
+      </section>
+    </section>
+  </main>
+  <div class="reading-progress"><span></span></div>
+  <script src="../script.js"></script>
+</body>
+</html>

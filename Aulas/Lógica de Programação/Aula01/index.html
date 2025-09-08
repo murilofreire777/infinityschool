@@ -1,0 +1,199 @@
+<!-- ================================
+Arquivo: aula01.html
+Descrição: Aula 01 — Algoritmos, Introdução à Lógica e Tipos de Dados
+Baseado na ementa fornecida.
+================================ -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aula 01 — Algoritmos, Lógica e Tipos de Dados</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body class="theme-auto">
+  <header class="topbar">
+    <div class="container row between center-gap">
+      <div class="brand">
+        <span class="logo">{} </span>
+        <strong>Lógica da Programação 2025</strong>
+        <span class="muted">Aula 01</span>
+      </div>
+      <nav class="actions row gap-sm">
+        <button class="btn btn-ghost" id="btnToggleTheme">🌗</button>
+        <button class="btn btn-ghost" id="btnIncreaseFont">A+</button>
+        <button class="btn btn-ghost" id="btnDecreaseFont">A−</button>
+        <button class="btn" id="btnPrint">🖨️ PDF</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container grid grid-12 gap-lg main-layout">
+    <aside class="card sidebar">
+      <div class="card-header">
+        <h2 class="card-title">Sumário</h2>
+      </div>
+      <div class="card-content">
+        <input type="search" id="tocSearch" class="input" placeholder="Filtrar tópicos" />
+        <nav id="toc" class="toc"></nav>
+      </div>
+    </aside>
+
+    <section class="content col-span-9">
+      <section class="hero" data-section-title="Abertura">
+        <h1>Aula 01 — Algoritmos, Lógica e Tipos de Dados</h1>
+        <p class="lead">Primeira aula: entendendo o que é algoritmo, noções de lógica e a base da programação em Python.</p>
+        <div class="grid grid-12 gap-md mt-md">
+          <div class="col-span-6">
+            <div class="card">
+              <div class="card-header"><h3 class="card-title">Objetivos</h3></div>
+              <div class="card-content">
+                <ul class="list check">
+                  <li>Compreender o conceito de algoritmos e sua importância.</li>
+                  <li>Introduzir conceitos básicos de lógica de programação.</li>
+                  <li>Apresentar a linguagem Python e seu ambiente.</li>
+                  <li>Explicar variáveis, operadores e tipos de dados.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-6">
+            <div class="card">
+              <div class="card-header"><h3 class="card-title">Agenda</h3></div>
+              <div class="card-content">
+                <ol class="list ordered">
+                  <li>O que é um algoritmo</li>
+                  <li>Lógica de Programação</li>
+                  <li>Primeiros passos no Python</li>
+                  <li>Variáveis e Tipos de Dados</li>
+                  <li>Operadores</li>
+                  <li>Prática</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section data-section-title="Algoritmos">
+        <h2>O que é um Algoritmo?</h2>
+        <p>Um algoritmo é uma sequência finita de passos que descreve como resolver um problema.</p>
+        <div class="callout tip">
+          <strong>Exemplo cotidiano:</strong> Receita de suco de laranja.
+        </div>
+        <ol class="list ordered">
+          <li>Pegar laranjas.</li>
+          <li>Cortar ao meio.</li>
+          <li>Espremer.</li>
+          <li>Adicionar açúcar/água se necessário.</li>
+        </ol>
+
+        <div class="callout success mt-md">
+          <strong>Exercício 1:</strong> Crie um algoritmo para preparar um sanduíche.
+        </div>
+      </section>
+
+      <section data-section-title="Lógica de Programação">
+        <h2>Noções de Lógica</h2>
+        <p>Lógica de programação organiza o raciocínio para resolver problemas de forma estruturada.</p>
+        <div class="callout warn">
+          <strong>Atenção:</strong> Um algoritmo deve ter início, meio e fim bem definidos.
+        </div>
+
+        <div class="callout success mt-md">
+          <strong>Exercício 2:</strong> Descreva em passos a rotina de acordar e se arrumar para sair.
+        </div>
+      </section>
+
+      <section data-section-title="Python Básico">
+        <h2>Introdução ao Python</h2>
+        <div class="codeblock" data-lang="python">
+          <div class="codeblock-header">
+            <span>Primeiro programa</span>
+            <button class="btn btn-ghost btn-copy" data-copy-target="#hello">Copiar</button>
+          </div>
+          <pre id="hello"><code>print("Olá, mundo!")</code></pre>
+        </div>
+      </section>
+
+      <section data-section-title="Variáveis e Tipos">
+        <h2>Variáveis e Tipos de Dados</h2>
+        <ul class="list">
+          <li><span class="tag">int</span> — números inteiros</li>
+          <li><span class="tag">float</span> — números decimais</li>
+          <li><span class="tag">str</span> — cadeias de caracteres</li>
+          <li><span class="tag">bool</span> — valores lógicos</li>
+        </ul>
+        <div class="codeblock" data-lang="python">
+          <div class="codeblock-header"><span>Exemplo</span></div>
+          <pre><code>idade = 25          # int
+altura = 1.75       # float
+nome = "Maria"      # str
+ativo = True        # bool
+</code></pre>
+        </div>
+      </section>
+
+      <section data-section-title="Operadores">
+        <h2>Operadores Aritméticos e Relacionais</h2>
+        <ul class="list dotted">
+          <li><code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>//</code>, <code>%</code></li>
+          <li><code>==</code>, <code>!=</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code></li>
+        </ul>
+        <div class="codeblock" data-lang="python">
+          <pre><code>x = 10
+y = 3
+print(x + y)   # 13
+print(x &gt; y)   # True</code></pre>
+        </div>
+      </section>
+
+      <section data-section-title="Booleanos">
+        <h2>Visão Computacional de Dados Booleanos</h2>
+        <p>No computador, <code>True</code> equivale a 1 e <code>False</code> a 0.</p>
+        <ul class="list">
+          <li><code>bool(0)</code> → False</li>
+          <li><code>bool("abc")</code> → True</li>
+        </ul>
+      </section>
+
+      <section data-section-title="Exercícios Finais">
+        <h2>Exercícios Finais</h2>
+        <ol class="list ordered">
+          <li>Escreva um programa que leia o nome do usuário e o cumprimente.</li>
+          <li>Crie um programa que receba dois números e exiba a soma.</li>
+          <li>Teste operadores relacionais com diferentes valores.</li>
+          <li>Faça um programa que calcule a média de duas notas.</li>
+          <li>Crie um programa que leia um número e informe se ele é maior que 100.</li>
+        </ol>
+      </section>
+
+      <section data-section-title="Quiz">
+        <h2>Quiz Rápido</h2>
+        <form class="quiz" data-quiz>
+          <fieldset class="quiz-item">
+            <legend>1) Qual é o resultado de <code>bool("")</code>?</legend>
+            <label><input type="radio" name="q1" value="a"> True</label>
+            <label><input type="radio" name="q1" value="b" data-correct> False</label>
+          </fieldset>
+          <fieldset class="quiz-item">
+            <legend>2) Qual tipo de dado é <code>3.14</code>?</legend>
+            <label><input type="radio" name="q2" value="a" data-correct> float</label>
+            <label><input type="radio" name="q2" value="b"> int</label>
+          </fieldset>
+          <button type="button" class="btn" id="btnCorrigir">Corrigir</button>
+          <output id="quizResultado"></output>
+        </form>
+      </section>
+
+      <section data-section-title="Encerramento">
+        <div class="callout neutral">
+          <strong>Resumo:</strong> Você aprendeu o que é um algoritmo, noções de lógica, variáveis, tipos e operadores básicos no Python.
+        </div>
+      </section>
+    </section>
+  </main>
+  <div class="reading-progress"><span></span></div>
+  <script src="../script.js"></script>
+</body>
+</html>
