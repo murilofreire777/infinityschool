@@ -118,6 +118,14 @@ Baseado na ementa fornecida.
 
       <section data-section-title="Variáveis e Tipos">
         <h2>Variáveis e Tipos de Dados</h2>
+       
+        <p>Espaço de memória onde armazenamos informação. </p>
+        <ul class="list">
+          <li><code>nome = "Murilo"</li>
+          <li><code>idade = 40</li>
+        </ul>
+   
+        <p>Os dados que armazenamos têm "tipos". </p>
         <ul class="list">
           <li><span class="tag">int</span> — números inteiros</li>
           <li><span class="tag">float</span> — números decimais</li>
@@ -132,6 +140,19 @@ nome = "Maria"      # str
 ativo = True        # bool
 </code></pre>
         </div>
+
+        <p>Para entrada de dados, utilizamos o comando <code>prompt</code>. </p>
+        <ul class="list">
+          <li><code>nome = prompt("Informe o seu nome")</li>
+          <li><code>idade = prompt("Informe a sua idade")</li>
+        </ul>
+        <div class="callout warn">
+          <strong>Atenção:</strong> Para dados numéricos, às vezes precisamos fazer conversões.
+        </div>
+        <ul class="list">
+          <li><code>idade = int(idade) # converte de "40" para 40</li>
+          <li><code>qtd = float(prompt("Informe a quantidade")) #conversão direta</li>
+        </ul>
       </section>
 
       <section data-section-title="Operadores">
@@ -156,19 +177,7 @@ print(x &gt; y)   # True</code></pre>
           <li><code>bool("abc")</code> → True</li>
         </ul>
       </section>
-
-      <section data-section-title="Exercícios Finais">
-        <h2>Exercícios Finais</h2>
-        <ol class="list ordered">
-          <li>Escreva um programa que leia o nome do usuário e o cumprimente.</li>
-          <li>Crie um programa que receba dois números e exiba a soma.</li>
-          <li>Teste operadores relacionais com diferentes valores.</li>
-          <li>Faça um programa que calcule a média de duas notas.</li>
-          <li>Crie um programa que leia um número e informe se ele é maior que 100.</li>
-        </ol>
-      </section>
-
-      <section data-section-title="Quiz">
+    <section data-section-title="Quiz">
         <h2>Quiz Rápido</h2>
         <form class="quiz" data-quiz>
           <fieldset class="quiz-item">
@@ -185,6 +194,19 @@ print(x &gt; y)   # True</code></pre>
           <output id="quizResultado"></output>
         </form>
       </section>
+      <section data-section-title="Exercícios Finais">
+        <h2>Exercícios Finais</h2>
+        <ol class="list ordered">
+          <li>Escreva um programa que leia o nome do usuário e o cumprimente.</li>
+          <li>Crie um programa que receba dois números e exiba a soma.</li>
+
+          <li>Crie um programa que leia um número e mostre ele + 10, -10, *10, /10 e %10</li>
+          <li>Faça um programa que calcule a média de duas notas.</li>
+          <li>Crie um programa que converta uma temperatura de Celsius para Fahrenheit.</li>
+        </ol>
+      </section>
+
+      
 
       <section data-section-title="Encerramento">
         <div class="callout neutral">
