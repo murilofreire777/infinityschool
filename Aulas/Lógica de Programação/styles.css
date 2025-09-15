@@ -1,4 +1,3 @@
-
 /* ================================
 Arquivo: styles.css
 Descrição: Estilos utilitários e componentes reutilizáveis para aulas.
@@ -6,11 +5,17 @@ Estrutura:
   1) Reset e variáveis
   2) Utilitários (spacing, grid, display)
   3) Layout (topbar, container, main)
-  4) Componentes (card, callout, codeblock, figure, quiz)
+  4) Componentes (card, callout, codeblock, figure, quiz, tabelas)
   5) Tipografia e listas
-  6) Acessibilidade e helpers
+  6) Leitura/Progresso
+  7) Modal de imagem
+  8) Acessibilidade e helpers
+  9) Responsividade (breakpoints)
+  10) Preferências do usuário
+  11) Impressão
 ================================ */
 
+/* ========== 1) Reset e variáveis ========== */
 :root {
   --bg: #0b0e14;
   --bg-soft: #121826;
@@ -28,10 +33,10 @@ Estrutura:
   --radius: 14px;
   --radius-sm: 10px;
   --gap: 16px;
-  --font-size: 16px;
+  --font-size: clamp(15px, 1.1vw + 0.4rem, 18px); /* tipografia fluida */
+  --container-max: 1200px;
 }
 
-/* Tema claro */
 :root.light {
   --bg: #f7fafc;
   --bg-soft: #ffffff;
@@ -57,13 +62,13 @@ body {
   color: var(--text);
   font: 500 var(--font-size)/1.55 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, "Apple Color Emoji", "Segoe UI Emoji";
 }
-img { max-width: 100%; display: block; }
+img { max-width: 100%; display: block; height: auto; }
 a { color: var(--primary); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
-/* Utilitários */
-.container { width: min(1200px, 92%); margin-inline: auto; }
-.row { display: flex; }
+/* ========== 2) Utilitários (spacing, grid, display) ========== */
+.container { width: min(var(--container-max), 92%); margin-inline: auto; }
+.row { display: flex; flex-wrap: wrap; }
 .gap-sm { gap: 8px; }
 .gap-md { gap: 12px; }
 .gap-lg { gap: 20px; }
@@ -78,33 +83,30 @@ a:hover { text-decoration: underline; }
 .bold { font-weight: 700; }
 .muted { color: var(--muted); }
 .tag {
-  display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: .8rem; background: var(--surface); border: 1px solid var(--border); color: var(--muted);
+  display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: .8rem;
+  background: var(--surface); border: 1px solid var(--border); color: var(--muted);
 }
 
-/***** Grid *****/
-.grid { display: grid; }
+/* Grid utilitário */
+.grid { display: grid; gap: var(--gap); }
 .grid-12 { grid-template-columns: repeat(12, 1fr); }
 .col-span-5 { grid-column: span 5; }
 .col-span-6 { grid-column: span 6; }
 .col-span-7 { grid-column: span 7; }
 .col-span-9 { grid-column: span 9; }
 
-@media (max-width: 960px) {
-  .grid-12 { grid-template-columns: 1fr; }
-  .col-span-5, .col-span-6, .col-span-7, .col-span-9 { grid-column: auto; }
-}
-
-/***** Layout *****/
+/* ========== 3) Layout (topbar, container, main) ========== */
 .topbar {
-  position: sticky; top: 0; z-index: 30; background: var(--bg-soft); border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; z-index: 30;
+  background: var(--bg-soft); border-bottom: 1px solid var(--border);
 }
-.brand { display: flex; align-items: baseline; gap: 10px; }
+.brand { display: flex; align-items: baseline; gap: 10px; min-width: 200px; }
 .logo { font-weight: 800; }
 .main-layout { margin-top: 18px; }
 .sidebar { position: sticky; top: 68px; height: max-content; }
 .content { min-height: 60vh; }
 
-/***** Componentes *****/
+/* ========== 4) Componentes ========== */
 .card {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -116,14 +118,21 @@ a:hover { text-decoration: underline; }
 .card-content { padding: 16px; }
 
 .btn {
-  border: 1px solid var(--border); background: var(--surface); color: var(--text); padding: 8px 12px; border-radius: var(--radius-sm); cursor: pointer;
+  border: 1px solid var(--border); background: var(--surface); color: var(--text);
+  padding: 8px 12px; border-radius: var(--radius-sm); cursor: pointer;
 }
 .btn:hover { filter: brightness(1.1); }
 .btn-ghost { background: transparent; }
-.input { width: 100%; padding: 10px 12px; border-radius: var(--radius-sm); border: 1px solid var(--border); background: var(--bg-soft); color: var(--text); }
+
+.input {
+  width: 100%; padding: 10px 12px; border-radius: var(--radius-sm);
+  border: 1px solid var(--border); background: var(--bg-soft); color: var(--text);
+}
 
 .callout {
-  border-left: 4px solid var(--neutral); background: linear-gradient(90deg, rgba(255,255,255,.02), transparent); padding: 12px 14px; border-radius: var(--radius);
+  border-left: 4px solid var(--neutral);
+  background: linear-gradient(90deg, rgba(255,255,255,.02), transparent);
+  padding: 12px 14px; border-radius: var(--radius);
 }
 .callout.info { border-left-color: var(--info); }
 .callout.tip { border-left-color: var(--primary); }
@@ -131,22 +140,39 @@ a:hover { text-decoration: underline; }
 .callout.warn { border-left-color: var(--warn); }
 .callout.neutral { border-left-color: var(--neutral); }
 
-.codeblock { border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; background: #0b0e14; }
-.codeblock-header { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 10px 12px; border-bottom: 1px solid var(--border); background: #0f1420; }
-.codeblock pre { margin: 0; padding: 14px; overflow: auto; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; font-size: .95rem; color: #e6edf7; }
+.codeblock {
+  border: 1px solid var(--border); border-radius: var(--radius);
+  overflow: hidden; background: #0b0e14;
+}
+.codeblock-header {
+  display: flex; justify-content: space-between; align-items: center; gap: 8px;
+  padding: 10px 12px; border-bottom: 1px solid var(--border); background: #0f1420;
+}
+.codeblock pre {
+  margin: 0; padding: 14px; overflow: auto;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: .95rem; color: #e6edf7; tab-size: 4;
+}
 
 .figure { border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
 .figure figcaption { padding: 10px 12px; border-top: 1px solid var(--border); color: var(--muted); background: var(--bg-soft); }
-.figure img { cursor: zoom-in; }
+.figure img { width: 100%; height: auto; cursor: zoom-in; }
 
 .toc { margin-top: 10px; display: grid; gap: 6px; }
-.toc a { display: block; padding: 6px 8px; border-radius: 8px; border: 1px solid transparent; }
+.toc a { display: block; padding: 8px 10px; border-radius: 8px; border: 1px solid transparent; }
 .toc a.active { border-color: var(--primary); background: rgba(110,168,254,.12); }
 
+/* Tabelas */
+.table-scroll { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.truth-table { width: 100%; min-width: 420px; border-collapse: collapse; margin-top: 10px; }
+.truth-table th, .truth-table td { border: 1px solid var(--border); padding: 8px 10px; text-align: center; }
+.truth-table thead th { background: var(--bg-soft); color: var(--muted); }
+
+/* Quiz */
 .quiz .quiz-item { border: 1px dashed var(--border); border-radius: var(--radius-sm); padding: 10px 12px; margin-bottom: 12px; }
 .quiz label { display: block; margin-top: 6px; }
 
-/***** Tipografia e listas *****/
+/* ========== 5) Tipografia e listas ========== */
 .lead { font-size: 1.125rem; color: var(--muted); }
 .list { padding-left: 18px; }
 .list.compact li { margin-bottom: 6px; }
@@ -159,18 +185,64 @@ a:hover { text-decoration: underline; }
 .glossary dt { font-weight: 700; }
 .glossary dd { margin: 0 0 10px 0; color: var(--muted); }
 
-/***** Leitura/Progresso *****/
+/* ========== 6) Leitura/Progresso ========== */
 .reading-progress { position: fixed; left: 0; right: 0; top: 0; height: 3px; background: transparent; z-index: 40; }
 .reading-progress span { display: block; height: 100%; width: 0%; background: var(--primary); transition: width .1s linear; }
 
-/***** Modal de imagem *****/
+/* ========== 7) Modal de imagem ========== */
 .img-modal::backdrop { background: rgba(0,0,0,.6); }
 .img-modal { border: none; border-radius: var(--radius); padding: 0; background: var(--surface); color: var(--text); }
 .img-modal img { max-width: min(92vw, 900px); height: auto; display: block; }
 .img-modal .img-modal-close { position: absolute; right: 8px; top: 8px; }
 
-/***** Acessibilidade e helpers *****/
+/* ========== 8) Acessibilidade e helpers ========== */
 :focus-visible { outline: 2px dashed var(--primary); outline-offset: 3px; }
 [hidden] { display: none !important; }
 
+/* ========== 9) Responsividade ========== */
+/* Tablets: 2 colunas */
+@media (max-width: 1024px) {
+  .grid-12 { grid-template-columns: repeat(6, 1fr); }
+  .col-span-9 { grid-column: span 6; }
+  .col-span-7 { grid-column: span 6; }
+  .col-span-6 { grid-column: span 6; }
+  .col-span-5 { grid-column: span 6; }
 
+  .sidebar { position: static; top: auto; }
+}
+
+/* Mobile: 1 coluna */
+@media (max-width: 768px) {
+  .grid-12 { grid-template-columns: 1fr; }
+  .col-span-5, .col-span-6, .col-span-7, .col-span-9 { grid-column: auto; }
+
+  .topbar .container { padding-block: 8px; }
+  .actions { width: 100%; display: flex; justify-content: flex-start; gap: 8px; margin-top: 8px; }
+  .btn, .btn-ghost { padding: 10px 12px; } /* melhor toque */
+
+  .card-header, .card-content { padding: 14px; }
+
+  .mt-xl { margin-top: 28px; }
+  .mt-lg { margin-top: 20px; }
+}
+
+/* Codeblocks seguros no mobile */
+@media (max-width: 600px) {
+  .codeblock pre { white-space: pre-wrap; word-break: break-word; }
+}
+
+/* ========== 10) Preferências do usuário ========== */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+
+/* ========== 11) Impressão ========== */
+@media print {
+  :root { --bg: #ffffff; --text: #0f172a; --bg-soft: #ffffff; --surface: #ffffff; --border: #d1d5db; }
+  body { background: #ffffff !important; color: #0f172a !important; }
+  .topbar, .reading-progress, .btn, .input { display: none !important; }
+  .sidebar { position: static !important; }
+  .grid-12 { grid-template-columns: 1fr !important; }
+  .card, .figure, .codeblock { box-shadow: none !important; }
+  a { color: #000 !important; text-decoration: underline; }
+}

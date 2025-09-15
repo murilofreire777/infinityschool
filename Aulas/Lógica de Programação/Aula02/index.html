@@ -83,6 +83,18 @@ print(x &gt; 5)   # True
 print(x == 0)  # False</code></pre>
         </div>
 
+
+        <section data-section-title="Operadores">
+        <p>Operadores Relacionais</p>
+        <ul class="list dotted">
+          <li>Igualdade <code>==</code></li>
+          <li>Diferença <code>!=</code></li>
+          <li>Maior que <code>&gt;</code></li>
+          <li>Menor que <code>&lt;</code></li>
+          <li>Maior ou igual <code>&gt;=</code></li>
+          <li>Menor ou igual <code>&lt;=</code></li>
+        </ul>
+        
         <div class="callout success mt-md">
           <strong>Exercício 1:</strong> Crie uma condição para verificar se um número é maior que 100.
         </div>
@@ -125,7 +137,85 @@ print(x &gt; 5 and y &gt; 5)   # True
 print(x &gt; 15 or y &gt; 15)  # True
 print(not(x &gt; 5))        # False</code></pre>
         </div>
+
+        <!-- Seção: Tabelas Verdade (adicionar dentro da <section class="content"> da aula02) -->
+      
+        <p>Tabelas Verdade — <code>and</code>, <code>or</code> e <code>not</code></p>
+
+        <!-- AND -->
+        <article class="card mt-md">
+          <div class="card-header">
+            <h3 class="card-title">Operador Lógico <code>and</code></h3>
+          </div>
+          <div class="card-content">
+            <p class="muted">O resultado é <strong>True</strong> apenas quando <em>ambas</em> as expressões são <strong>True</strong>.</p>
+            <table class="truth-table" aria-label="Tabela verdade do operador and">
+              <thead>
+                <tr>
+                  <th>A</th>
+                  <th>B</th>
+                  <th>A and B</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>False</td><td>False</td><td>False</td></tr>
+                <tr><td>False</td><td>True</td><td>False</td></tr>
+                <tr><td>True</td><td>False</td><td>False</td></tr>
+                <tr><td>True</td><td>True</td><td>True</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <!-- OR -->
+        <article class="card mt-lg">
+          <div class="card-header">
+            <h3 class="card-title">Operador Lógico <code>or</code></h3>
+          </div>
+          <div class="card-content">
+            <p class="muted">O resultado é <strong>True</strong> quando <em>pelo menos uma</em> das expressões é <strong>True</strong>.</p>
+            <table class="truth-table" aria-label="Tabela verdade do operador or">
+              <thead>
+                <tr>
+                  <th>A</th>
+                  <th>B</th>
+                  <th>A or B</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>False</td><td>False</td><td>False</td></tr>
+                <tr><td>False</td><td>True</td><td>True</td></tr>
+                <tr><td>True</td><td>False</td><td>True</td></tr>
+                <tr><td>True</td><td>True</td><td>True</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <!-- NOT -->
+        <article class="card mt-lg">
+          <div class="card-header">
+            <h3 class="card-title">Operador Lógico <code>not</code></h3>
+          </div>
+          <div class="card-content">
+            <p class="muted">Inverte o valor lógico da expressão.</p>
+            <table class="truth-table" aria-label="Tabela verdade do operador not">
+              <thead>
+                <tr>
+                  <th>A</th>
+                  <th>not A</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>False</td><td>True</td></tr>
+                <tr><td>True</td><td>False</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
       </section>
+
+      
 
       <section data-section-title="Exercícios Finais">
         <h2>Exercícios Finais</h2>
