@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lista de Exercícios — Módulo Lógica</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="theme-auto">
+  <!-- Topo simples -->
+  <header class="topbar">
+    <div class="container row between center-gap">
+      <div class="brand">
+        <span class="logo">{} </span>
+        <strong>Lógica da Programação 2025</strong>
+        <span class="muted">Lista de Exercícios</span>
+      </div>
+      <nav class="actions row gap-sm">
+        <button class="btn btn-ghost" id="btnToggleTheme" title="Tema">🌗</button>
+        <button class="btn btn-ghost" id="btnIncreaseFont" title="Aumentar fonte">A+</button>
+        <button class="btn btn-ghost" id="btnDecreaseFont" title="Diminuir fonte">A−</button>
+        <button class="btn" id="btnPrint" title="Imprimir/Salvar PDF">🖨️ PDF</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mt-xl">
+    <!-- Seção 1 -->
+    <section class="card">
+      <div class="card-header">
+        <h2 class="card-title">1) Variáveis, tipos e operadores</h2>
+      </div>
+      <div class="card-content">
+        <ol class="list ordered">
+          <!-- Exercícios já básicos -->
+          <li><strong>Olá, mundo!</strong> — Escreva um programa que exiba a frase <code>Olá, mundo!</code>.</li>
+          <li><strong>Mensagem personalizada</strong> — Leia o nome e mostre uma saudação com o nome.</li>
+          <li><strong>Soma de dois números</strong> — Peça dois inteiros e mostre a soma.</li>
+          <li><strong>Área do retângulo</strong> — Peça base e altura e calcule a área.</li>
+          <li><strong>Celsius → Fahrenheit</strong> — Converta uma temperatura informada em °C para °F.</li>
+          <li><strong>Operadores relacionais</strong> — Leia dois inteiros e mostre: <code>==</code>, <code>!=</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>.</li>
+
+          <!-- NOVOS exercícios (mais prática com tipos/operadores) -->
+          <li><strong>Perímetro do círculo</strong> — Leia o raio e calcule o perímetro: <code>2 * π * r</code>. Use <code>π = 3.14159</code>.</li>
+          <li><strong>KM/h → m/s</strong> — Converta uma velocidade de km/h para m/s (<code>m/s = km/h ÷ 3.6</code>).</li>
+          <li><strong>Troco</strong> — Leia valor da compra e valor pago; mostre o troco (considerar valores decimais).</li>
+          <li><strong>Decomposição</strong> — Leia um número inteiro (0–999) e mostre centenas, dezenas e unidades usando <code>//</code> e <code>%</code>.</li>
+          <li><strong>Média ponderada</strong> — Leia três notas e seus respectivos pesos e calcule a média ponderada.</li>
+          <li><strong>Divisão inteira e resto</strong> — Leia dois inteiros e mostre quociente inteiro (<code>//</code>) e resto (<code>%</code>).</li>
+          <li><strong>Arredondamentos</strong> — Leia um <em>float</em> e mostre: arredondado (0 casas), 1 casa e 2 casas decimais.</li>
+          <li><strong>Conversor de tempo</strong> — Leia um total de segundos e converta para <code>hh:mm:ss</code> com operações aritméticas.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Seção 2 -->
+    <section class="card mt-xl">
+      <div class="card-header">
+        <h2 class="card-title">2) Comandos Condicionais</h2>
+      </div>
+      <div class="card-content">
+        <ol class="list ordered">
+          <li><strong>Número positivo, negativo ou zero</strong> — Leia um inteiro e informe se é positivo, negativo ou zero.</li>
+          <li><strong>Maior de dois números</strong> — Mostre qual é maior ou se são iguais.</li>
+          <li><strong>Par ou ímpar</strong> — Diga se o inteiro é par ou ímpar.</li>
+          <li><strong>Classificação de idade</strong> — criança (até 12), adolescente (13–17), adulta (18–59), idosa (60+).</li>
+          <li><strong>Aprovado ou reprovado</strong> — Nota (0–10): <em>Aprovado</em> se ≥ 7; senão <em>Reprovado</em>.</li>
+          <li><strong>Maior de três</strong> — Mostre o maior entre três números (sem listas).</li>
+          <li><strong>Verificação de senha</strong> — Senha fixa “1234”: permita ou negue acesso.</li>
+          <li><strong>Calculadora simples</strong> — Dois números e uma operação (+, –, *, /).</li>
+          <li><strong>Ano bissexto</strong> — Divisível por 4 e não por 100, exceto se for por 400.</li>
+          <li><strong>Triângulo</strong> — Classifique em equilátero/isósceles/escaleno (valide antes).</li>
+          <li><strong>Vogal ou consoante</strong> — Peça uma letra e verifique usando <code>in</code>.</li>
+          <li><strong>Maioridade</strong> — 18+ é maior de idade.</li>
+          <li><strong>Desconto</strong> — Compras &gt; R$100 ganham 10% de desconto.</li>
+          <li><strong>Número no intervalo</strong> — Verifique se está entre 10 e 50 (inclusive).</li>
+          <li><strong>IMC</strong> — Calcule e classifique o IMC.</li>
+          <li><strong>Múltiplos</strong> — Informe se um é múltiplo do outro.</li>
+          <li><strong>Nota → conceito</strong> — A (9–10), B (7–8.9), C (5–6.9), D (3–4.9), E (0–2.9).</li>
+          <li><strong>Classificação de temperatura</strong> — frio (&lt;15), agradável (15–25), quente (&gt;25).</li>
+          <li><strong>Peso no boxe</strong> — Pena (≤60), Leve (61–75), Meio-pesado (76–90), Pesado (&gt;90).</li>
+          <li><strong>Multa por velocidade</strong> — &gt;80 km/h: R$5 por km acima do limite.</li>
+          <li><strong>Eleição em dois turnos</strong> — Mais de 50% elege no 1º turno; senão, 2º turno.</li>
+          <li><strong>Decimais</strong> — Compare dois números decimais (iguais/maior/menor).</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Seção 3 -->
+    <section class="card mt-xl">
+      <div class="card-header">
+        <h2 class="card-title">3) Comandos de Repetição (While)</h2>
+      </div>
+      <div class="card-content">
+        <ol class="list ordered">
+          <!-- Exercícios base -->
+          <li><strong>Senha até acertar</strong> — Peça a senha até o usuário digitar a correta.</li>
+          <li><strong>Soma até zero</strong> — Some inteiros até que 0 seja digitado; mostre o total.</li>
+          <li><strong>Tabuada com while</strong> — Mostre a tabuada de 1 a 10 para um número.</li>
+          <li><strong>Contagem regressiva</strong> — De 10 até 1, exibindo “Fim!” ao final.</li>
+          <li><strong>Média de notas</strong> — Leia notas até uma negativa; calcule a média das válidas.</li>
+          <li><strong>Menu interativo</strong> — 1-Somar, 2-Subtrair, 0-Sair; repita até sair.</li>
+
+          <!-- NOVOS exercícios -->
+          <li><strong>Maior e menor até 0</strong> — Leia inteiros até 0; exiba o maior e o menor lidos.</li>
+          <li><strong>Pares e ímpares</strong> — Leia inteiros até 0; conte quantos pares e quantos ímpares.</li>
+          <li><strong>Fatorial</strong> — Leia <code>n</code> e calcule <code>n!</code> usando <code>while</code>.</li>
+          <li><strong>Fibonacci</strong> — Leia <code>n</code> e mostre os <code>n</code> primeiros termos da sequência.</li>
+          <li><strong>Adivinhação com tentativas</strong> — Número secreto 1–50; limite de 6 tentativas; diga “maior/menor”.</li>
+          <li><strong>Validação robusta</strong> — Leia um inteiro entre 1 e 10; enquanto for inválido, repita o input.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Seção 4 -->
+    <section class="card mt-xl">
+      <div class="card-header">
+        <h2 class="card-title">4) Comandos de Repetição (For)</h2>
+      </div>
+      <div class="card-content">
+        <ol class="list ordered">
+          <!-- Exercícios base -->
+          <li><strong>Contagem simples</strong> — Mostre os números de 1 a 20.</li>
+          <li><strong>Múltiplos de 3</strong> — Mostre os múltiplos de 3 de 1 a 50.</li>
+          <li><strong>Caracteres da palavra</strong> — Exiba um caractere por linha.</li>
+          <li><strong>Soma de 5 números</strong> — Leia 5 números e some usando <code>for</code>.</li>
+          <li><strong>Tabuada</strong> — Mostre a tabuada de 1 a 10 de um número.</li>
+          <li><strong>Pares e ímpares</strong> — Liste pares de 1 a 30 e depois os ímpares.</li>
+
+          <!-- NOVOS exercícios -->
+          <li><strong>Soma 1..N</strong> — Leia <code>N</code> e calcule a soma de 1 até <code>N</code> com <code>for</code>.</li>
+          <li><strong>Quadrados e cubos</strong> — Para 1..10, mostre <code>n</code>, <code>n²</code> e <code>n³</code>.</li>
+          <li><strong>Contagem de vogais</strong> — Leia uma palavra e conte quantas vogais ela possui.</li>
+          <li><strong>Primos até N (simples)</strong> — Leia <code>N</code> e mostre números primos de 2 até <code>N</code> (teste por divisores).</li>
+          <li><strong>Maior valor e posição</strong> — Leia 5 números em uma lista e, usando <code>enumerate</code>, mostre o maior e seu índice.</li>
+          <li><strong>Matriz 3x3</strong> — Preencha uma matriz 3x3 com 1..9 usando <em>loops</em> aninhados e imprima em formato de grade.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Seção 5 (opcional para futuras aulas: Listas) -->
+    <section class="card mt-xl">
+      <div class="card-header">
+        <h2 class="card-title">5) Listas (Introdução)</h2>
+      </div>
+      <div class="card-content">
+        <ol class="list ordered">
+          <li><strong>Cadastro de nomes</strong> — Peça 5 nomes, armazene em uma lista e mostre todos em uma linha.</li>
+          <li><strong>Maior e menor</strong> — Leia 5 números e mostre o maior e o menor.</li>
+          <li><strong>Contagem de ocorrências</strong> — Leia 10 números; quantos “5” foram digitados?</li>
+          <li><strong>Média da turma</strong> — Leia as notas de 5 alunos e calcule a média.</li>
+          <li><strong>Idades e maioridade</strong> — Leia 5 idades e conte quantas ≥ 18.</li>
+          <li><strong>Ordem inversa</strong> — Leia 5 números e mostre na ordem reversa.</li>
+          <li><strong>Soma de listas</strong> — Leia duas listas A e B (5 elementos) e gere C[i] = A[i] + B[i].</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="mt-xl">
+      <div class="callout neutral">
+        <strong>Dica:</strong> Sempre valide entradas do usuário (tipo e faixa de valores) e trate erros com mensagens claras.
+      </div>
+    </section>
+  </main>
+
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <script src="script.js"></script>
+</body>
+</html>
