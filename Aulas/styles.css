@@ -15,43 +15,72 @@ Estrutura:
   11) Impressão
 ================================ */
 
-/* ========== 1) Reset e variáveis ========== */
+/* ================================
+Temas de cursos — adicionados via classe no <body>
+  Exemplo:
+  <body class="theme-auto course-python">
+================================ */
+
+/* Tema base (padrão - curso de Lógica) */
 :root {
   --bg: #0b0e14;
   --bg-soft: #121826;
   --surface: #1b2333;
   --text: #e6edf7;
   --muted: #9aa4b2;
-  --primary: #6ea8fe;
-  --success: #66d19e;
-  --warn: #ffdf6b;
-  --danger: #ff8a8a;
-  --info: #7cd1ff;
-  --neutral: #cfd8e3;
   --border: #2a3346;
   --shadow: 0 6px 22px rgba(0,0,0,.25);
   --radius: 14px;
   --radius-sm: 10px;
   --gap: 16px;
-  --font-size: clamp(15px, 1.1vw + 0.4rem, 18px); /* tipografia fluida */
+  --font-size: clamp(15px, 1.1vw + 0.4rem, 18px);
   --container-max: 1200px;
+
+  /* Paleta principal do curso */
+  --primary: #6ea8fe; /* azul - lógica */
+  --success: #66d19e;
+  --warn: #ffdf6b;
+  --danger: #ff8a8a;
+  --info: #7cd1ff;
+  --neutral: #cfd8e3;
 }
 
-:root.light {
-  --bg: #f7fafc;
-  --bg-soft: #ffffff;
-  --surface: #ffffff;
-  --text: #0f172a;
-  --muted: #475569;
-  --primary: #2563eb;
-  --success: #16a34a;
-  --warn: #d97706;
-  --danger: #dc2626;
-  --info: #0ea5e9;
-  --neutral: #334155;
-  --border: #e2e8f0;
-  --shadow: 0 6px 22px rgba(2,6,23,.12);
+/* === Temas específicos de cursos === */
+
+/* Curso de Lógica da Programação */
+.course-logica {
+  --primary: #6ea8fe; /* azul */
+  --bg: #0b0e14;
+  --bg-soft: #121826;
+  --surface: #1b2333;
 }
+
+/* Curso de Python */
+.course-python {
+  --primary: #2eb872; /* verde escuro */
+  --bg: #0b1410;
+  --bg-soft: #101c17;
+  --surface: #16241d;
+}
+
+/* Curso de Banco de Dados (exemplo futuro) */
+.course-banco {
+  --primary: #cba135; /* dourado */
+  --bg: #120e06;
+  --bg-soft: #1a1509;
+  --surface: #201b0b;
+}
+
+/* Curso de IA (exemplo futuro) */
+.course-ia {
+  --primary: #b43fff; /* violeta */
+  --bg: #0e0a13;
+  --bg-soft: #150f1e;
+  --surface: #1d162a;
+}
+
+
+
 
 /* Reset mínimo */
 * { box-sizing: border-box; }

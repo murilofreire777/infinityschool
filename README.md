@@ -2,14 +2,17 @@
 Arquivos usados nas aulas da Infinity School
 
 Lógica de Programação
-[Aula 01]([https://murilofreire777.github.io/infinityschool/Super%20M%C3%B3dulos/Metodologias%20Ageis/Aula01.html](https://murilofreire777.github.io/infinityschool/Aulas/L%C3%B3gica%20de%20Programa%C3%A7%C3%A3o/Aula01/index.html)
+[Aula 01](https://murilofreire777.github.io/infinityschool/Aulas/L%C3%B3gica%20de%20Programa%C3%A7%C3%A3o/Aula01/index.html)
 
-[Aula 02]([https://murilofreire777.github.io/infinityschool/Super%20M%C3%B3dulos/Metodologias%20Ageis/Aula02.html](https://murilofreire777.github.io/infinityschool/Aulas/L%C3%B3gica%20de%20Programa%C3%A7%C3%A3o/Aula02/index.html) 
+[Aula 02](https://murilofreire777.github.io/infinityschool/Aulas/L%C3%B3gica%20de%20Programa%C3%A7%C3%A3o/Aula02/index.html) 
 
-[Aula 03]([https://murilofreire777.github.io/infinityschool/Super%20M%C3%B3dulos/Metodologias%20Ageis/Aula03.html](https://murilofreire777.github.io/infinityschool/Aulas/L%C3%B3gica%20de%20Programa%C3%A7%C3%A3o/Aula03/index.html) 
+[Aula 03](https://murilofreire777.github.io/infinityschool/Aulas/L%C3%B3gica%20de%20Programa%C3%A7%C3%A3o/Aula03/index.html) 
 
-[Aula 04]([https://murilofreire777.github.io/infinityschool/Super%20M%C3%B3dulos/Metodologias%20Ageis/Aula04.html](https://murilofreire777.github.io/infinityschool/Aulas/L%C3%B3gica%20de%20Programa%C3%A7%C3%A3o/Aula04/index.html) 
+[Aula 04](https://murilofreire777.github.io/infinityschool/Aulas/L%C3%B3gica%20de%20Programa%C3%A7%C3%A3o/Aula04/index.html) 
 
+
+Python (Full Stack)
+[Aula 01](https://murilofreire777.github.io/infinityschool/Aulas/Python/Aula01/index.html)
 
 API-Python
 (https://github.com/murilofreire777/infinityschool/tree/main/Super%20M%C3%B3dulos/API-Python)

@@ -1,0 +1,229 @@
+<!-- ================================
+Arquivo: aula01.html
+Curso: Python
+Aula 01 — Revisão de Lógica: Listas e Tuplas
+================================ -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Python — Aula 01: Revisão de Lógica (Listas e Tuplas)</title>
+  <link rel="stylesheet" href="../../styles.css" />
+</head>
+<body class="theme-auto course-python">
+  <header class="topbar">
+    <div class="container row between center-gap">
+      <div class="brand">
+        <span class="logo">🐍</span>
+        <strong>Python</strong>
+        <span class="muted">Aula 01 — Revisão de Lógica</span>
+      </div>
+      <nav class="actions row gap-sm">
+        <button class="btn btn-ghost" id="btnToggleTheme">🌗</button>
+        <button class="btn btn-ghost" id="btnIncreaseFont">A+</button>
+        <button class="btn btn-ghost" id="btnDecreaseFont">A−</button>
+        <button class="btn" id="btnPrint">🖨️ PDF</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mt-xl">
+    <!-- Introdução -->
+    <section class="card">
+      <div class="card-header">
+        <h1 class="card-title">Revisão de Lógica — Listas e Tuplas</h1>
+      </div>
+      <div class="card-content">
+        <p class="lead">
+          Nesta aula revisaremos os principais conceitos de lógica de programação aplicados à linguagem Python, com foco em <strong>listas</strong> e <strong>tuplas</strong>.
+        </p>
+        <ul class="list check">
+          <li>Revisar o uso de estruturas condicionais e de repetição.</li>
+          <li>Compreender a diferença entre listas e tuplas.</li>
+          <li>Manipular coleções com métodos e funções nativas.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Revisão rápida -->
+    <section class="card mt-xl">
+      <div class="card-header">
+        <h2 class="card-title">Relembrando as estruturas</h2>
+      </div>
+ 
+       <div class="card-content grid grid-12 gap-md">
+        <div class="col-span-6">
+          <h3>Tipos de dados</h3>
+      <div class="codeblock" data-lang="python">
+       
+          <div class="codeblock-header"><span>Exemplo</span></div>
+          <pre><code>idade = 25          # int
+altura = 1.75       # float
+nome = "Maria"      # str
+ativo = True        # bool
+# Nós vimos também
+#usuarios = ['adm', 'usr'] #list (listas)
+#resultados = (2, 3, 5 , 7) #tuple (tuplas)
+</code></pre>
+        </div>
+      </div>
+        <div class="col-span-6">
+          <h3>Condicionais (<code>if elif else</code>)</h3>
+          <div class="codeblock" data-lang="python">
+            <div class="codeblock-header"><span>Exemplo</span></div>
+            <pre><code>idade = int(input("Idade: "))
+if idade >= 18:
+    print("Maior de idade")
+else:
+    print("Menor de idade")</code></pre>
+          </div>
+        </div>
+        <div class="col-span-6">
+          <h3>Laços (<code>for</code> e <code>while</code>)</h3>
+          <div class="codeblock" data-lang="python">
+            <div class="codeblock-header"><span>Exemplo (while)</span></div>
+            <pre><code>i = 0
+while i < 5:
+    print(f"Contagem: {i}")
+    i += 1</code></pre>
+          </div>
+        
+        <div class="codeblock" data-lang="python">
+            <div class="codeblock-header"><span>Exemplo (for)</span></div>
+            <pre><code>for i in range(5):
+    print(f"Contagem: {i}")</code></pre>
+          </div>
+         </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tuplas -->
+    <section class="card mt-xl">
+      <div class="card-header">
+        <h2 class="card-title">Tuplas</h2>
+      </div>
+      <div class="card-content">
+        <p>Tuplas são coleções <strong>imutáveis</strong>. Elas são criadas com parênteses e não permitem alterações nos elementos.</p>
+        <div class="codeblock" data-lang="python">
+          <div class="codeblock-header"><span>Exemplo</span></div>
+          <pre><code>cores = ("azul", "verde", "vermelho")
+print(cores[0])  # azul
+print(len(cores))# 3
+#Iterando
+for c in cores:
+    print(c)</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Listas -->
+    <section class="card mt-xl">
+      <div class="card-header">
+        <h2 class="card-title">Listas</h2>
+      </div>
+      <div class="card-content">
+        <p>Listas são estruturas <strong>mutáveis</strong>, ideais para armazenar conjuntos de dados que podem mudar.</p>
+        <div class="codeblock" data-lang="python">
+          <div class="codeblock-header"><span>Operações básicas</span></div>
+          <pre><code>frutas = ["maçã", "banana", "uva"]
+frutas.append("pera")
+frutas.remove("banana")
+print(frutas)
+print(frutas[0].upper())</code></pre>
+        </div>
+        <p>Principais métodos:</p>
+        <ul class="list dotted">
+          <li><code>append()</code> — adiciona no final</li>
+          <li><code>insert()</code> — insere em posição específica</li>
+          <li><code>pop()</code> — remove o último ou em posição específica</li>
+          <li><code>remove()</code> — remove um item (por valor)</li>
+          <li><code>sort()</code> — ordena a lista</li>
+          <li><code>len()</code> — conta os itens da lista</li>
+        </ul>
+      </div>
+      
+    </section>
+   <section class="mt-xl">
+      <div class="callout neutral">
+        <strong>Dica:</strong> Você pode usar laços para percorrer strings.
+        <div class="codeblock" data-lang="python">
+          <pre><code>for letra in "Abracadabra":
+    print(letra)
+  # Além de fazer acesso posicional
+  print("Abracadabra"[0]) # A
+</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-xl">
+      <div class="callout neutral">
+        <strong>Dica:</strong> Você pode converter de tuplas para listas e vice versa.
+        <div class="codeblock" data-lang="python">
+          <pre><code>numeros = [1, 2, 3, 4, 5] # list
+numeros = tuple(numeros) # O tipo muda para tuple
+numeros = list(numeros) # o tipo volta a ser list
+</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-xl">
+      <div class="callout neutral">
+        <strong>Dica:</strong> O operador 'in' pode verificar se um elemento consta em uma coleção.
+        <div class="codeblock" data-lang="python">
+          <pre><code>numeros = ['a', 'b', 'c']
+if 'a' in numeros: 
+    print("A lista contém o elemento 'a'")
+</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Exercícios -->
+    <section class="card mt-xl">
+      <div class="card-header">
+        <h2 class="card-title">Exercícios</h2>
+      </div>
+      <div class="card-content">
+        <h3>Condicionais</h3>
+        <ol class="list ordered">
+          <li><strong>Maioridade revisada</strong> — Peça a idade e diga se é maior ou menor de idade.</li>
+          <li><strong>Nota e aprovação</strong> — Peça a nota e diga se está aprovado (≥ 7) ou reprovado.</li>
+        </ol>
+
+        <h3>Laços de repetição</h3>
+        <ol class="list ordered">
+          <li><strong>Contagem com for</strong> — Mostre os números de 1 a 10.</li>
+          <li><strong>Soma de pares</strong> — Some todos os números pares de 1 a 100 com <code>for</code>.</li>
+        </ol>
+
+        <h3>Tuplas</h3>
+        <ol class="list ordered">
+          <li><strong>Meses do ano</strong> — Crie uma tupla com os 12 meses e exiba o mês correspondente a um número digitado.</li>
+        </ol>
+
+        <h3>Listas</h3>
+        <ol class="list ordered">
+          <li><strong>Cadastro de nomes</strong> — Leia 5 nomes e exiba-os em ordem alfabética.</li>
+          <li><strong>Média e maiores</strong> — Leia 5 notas em uma lista, calcule a média e mostre as notas acima da média.</li>
+          <li><strong>Maior e menor valor</strong> — Peça 5 números e mostre o maior e o menor.</li>
+          <li><strong>Remoção de repetidos</strong> — Leia números até digitar 0 e crie uma lista sem repetições.</li>
+          <li><strong>Junção de listas</strong> — Crie duas listas de 3 números e gere uma terceira com a soma elemento a elemento.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="mt-xl">
+      <div class="callout neutral">
+        <strong>Dica:</strong> A revisão de lógica é essencial antes de avançar para estruturas de dados mais complexas. Refaça os exercícios com pequenas variações!
+      </div>
+    </section>
+  </main>
+
+  <div class="reading-progress"><span></span></div>
+  <script src="../script.js"></script>
+</body>
+</html>
