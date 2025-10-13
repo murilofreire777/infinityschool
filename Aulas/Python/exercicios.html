@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Python — Exercícios (Aulas 01 e 02)</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body class="theme-auto course-python">
+  <!-- Topo simples -->
+  <header class="topbar">
+    <div class="container row between center-gap">
+      <div class="brand">
+        <span class="logo">🐍</span>
+        <strong>Python</strong>
+        <span class="muted">Exercícios — Aulas 01 e 02</span>
+      </div>
+      <nav class="actions row gap-sm">
+        <button class="btn btn-ghost" id="btnToggleTheme" title="Tema">🌗</button>
+        <button class="btn btn-ghost" id="btnIncreaseFont" title="Aumentar fonte">A+</button>
+        <button class="btn btn-ghost" id="btnDecreaseFont" title="Diminuir fonte">A−</button>
+        <button class="btn" id="btnPrint" title="Imprimir/Salvar PDF">🖨️ PDF</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mt-xl">
+
+    <!-- AULA 01 -->
+    <section class="card">
+      <div class="card-header">
+        <h2 class="card-title">Aula 01 — Revisão de Lógica (Listas e Tuplas)</h2>
+      </div>
+      <div class="card-content">
+        <p class="lead">Exercícios de reforço: 2 com <strong>if</strong>, 2 de <strong>laços</strong>, 1 com <strong>tupla</strong> e 5 com <strong>lista</strong>.</p>
+
+        <h3>Condicionais (2)</h3>
+        <ol class="list ordered">
+          <li><strong>Maioridade revisada</strong> — Leia a idade e mostre se a pessoa é “maior de idade” (≥ 18) ou “menor de idade”.</li>
+          <li><strong>Nota e aprovação</strong> — Leia uma nota (0–10) e exiba “Aprovado” se ≥ 7, senão “Reprovado”.</li>
+        </ol>
+
+        <h3>Laços (2)</h3>
+        <ol class="list ordered">
+          <li><strong>Contagem com for</strong> — Mostre os números de 1 a 10 usando <code>for</code>.</li>
+          <li><strong>Soma de pares</strong> — Calcule a soma de todos os números pares de 1 a 100 com <code>for</code>.</li>
+        </ol>
+
+        <h3>Tuplas (1)</h3>
+        <ol class="list ordered">
+          <li><strong>Meses do ano</strong> — Crie uma tupla com os 12 meses. Peça um número (1–12) e mostre o nome do mês correspondente.</li>
+        </ol>
+
+        <h3>Listas (5)</h3>
+        <ol class="list ordered">
+          <li><strong>Cadastro de nomes</strong> — Leia 5 nomes, guarde em uma lista e exiba em <em>ordem alfabética</em>.</li>
+          <li><strong>Média e acima da média</strong> — Leia 5 notas em uma lista, calcule a média e mostre as notas &gt;= média.</li>
+          <li><strong>Maior e menor</strong> — Leia 5 números e mostre o maior e o menor valores da lista.</li>
+          <li><strong>Sem repetidos</strong> — Leia números até digitar 0 e crie uma lista contendo apenas valores únicos (sem repetições).</li>
+          <li><strong>Junção elemento a elemento</strong> — Leia duas listas A e B de 3 números cada e gere C em que <code>C[i] = A[i] + B[i]</code>.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- AULA 02 -->
+    <section class="card mt-xl">
+      <div class="card-header">
+        <h2 class="card-title">Aula 02 — Dicionários e Conjuntos (Sets)</h2>
+      </div>
+      <div class="card-content">
+        <p class="lead">Exercícios práticos com <strong>dict</strong> (pares chave-valor) e <strong>set</strong> (elementos únicos e operações de conjunto).</p>
+
+        <h3>Dicionários (5)</h3>
+        <ol class="list ordered">
+          <li><strong>Cadastro simples</strong> — Crie um dicionário com <code>nome</code>, <code>idade</code> e <code>cidade</code>, e exiba em uma frase única.</li>
+          <li><strong>Notas de alunos</strong> — Guarde nomes como chaves e médias como valores; liste apenas os aprovados (≥ 7).</li>
+          <li><strong>Conversor de moedas</strong> — Armazene cotações (ex.: dólar, euro, libra) em um <code>dict</code> e converta um valor informado.</li>
+          <li><strong>Contagem de letras</strong> — Leia uma palavra/frase e crie um <code>dict</code> com a frequência de cada caractere.</li>
+          <li><strong>Agenda telefônica</strong> — Armazene nomes → telefones; permita consultar por nome com <code>get</code> (retorno “Não encontrado” se ausente).</li>
+        </ol>
+
+        <h3>Conjuntos / Sets (5)</h3>
+        <ol class="list ordered">
+          <li><strong>Alunos em comum</strong> — Leia nomes de dois grupos e mostre a <em>interseção</em> (quem está nos dois).</li>
+          <li><strong>Números únicos</strong> — Peça 10 números e mostre apenas os valores distintos (use <code>set</code>).</li>
+          <li><strong>Vogais presentes</strong> — Leia uma frase e mostre as vogais encontradas (sem repetição) em ordem alfabética.</li>
+          <li><strong>Operações de conjunto</strong> — Dado A e B (conjuntos de inteiros), mostre união, interseção e diferenças A−B e B−A.</li>
+          <li><strong>Cadastro sem duplicatas</strong> — Leia nomes até “fim”; armazene em um <code>set</code> para impedir repetições; exiba a lista final.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="mt-xl">
+      <div class="callout neutral">
+        <strong>Dica:</strong> Ao trabalhar com coleções, prefira <code>set</code> para unicidade e <code>dict</code> para dados estruturados (chave→valor).
+      </div>
+    </section>
+  </main>
+
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <script src="../script.js"></script>
+</body>
+</html>

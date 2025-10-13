@@ -1,0 +1,159 @@
+<!-- ================================
+Arquivo: aula02.html
+Curso: Python
+Aula 02 — Dicionários e Conjuntos (Sets)
+================================ -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Python — Aula 02: Dicionários e Conjuntos</title>
+  <link rel="stylesheet" href="../../styles.css" />
+</head>
+<body class="theme-auto course-python">
+  <header class="topbar">
+    <div class="container row between center-gap">
+      <div class="brand">
+        <span class="logo">🐍</span>
+        <strong>Python</strong>
+        <span class="muted">Aula 02 — Dicionários e Conjuntos</span>
+      </div>
+      <nav class="actions row gap-sm">
+        <button class="btn btn-ghost" id="btnToggleTheme">🌗</button>
+        <button class="btn btn-ghost" id="btnIncreaseFont">A+</button>
+        <button class="btn btn-ghost" id="btnDecreaseFont">A−</button>
+        <button class="btn" id="btnPrint">🖨️ PDF</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mt-xl">
+
+    <!-- Introdução -->
+    <section class="card">
+      <div class="card-header">
+        <h1 class="card-title">Dicionários e Conjuntos (Sets)</h1>
+      </div>
+      <div class="card-content">
+        <p class="lead">
+          Nesta aula você aprenderá a manipular <strong>dicionários</strong> e <strong>conjuntos (sets)</strong>, estruturas fundamentais da linguagem Python para armazenar e organizar dados.
+        </p>
+        <ul class="list check">
+          <li>Compreender o funcionamento de <code>dict</code> (pares chave-valor).</li>
+          <li>Aprender a usar <code>set</code> para armazenar elementos únicos.</li>
+          <li>Aplicar operações comuns: inserção, remoção, interseção e união.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Dicionários -->
+    <section class="card mt-xl">
+      <div class="card-header">
+        <h2 class="card-title">Dicionários (<code>dict</code>)</h2>
+      </div>
+      <div class="card-content">
+        <p>
+          Dicionários armazenam pares <strong>chave : valor</strong>. São mutáveis e ideais para representar objetos ou registros.
+        </p>
+        <div class="codeblock" data-lang="python">
+          <div class="codeblock-header"><span>Exemplo</span></div>
+          <pre><code>aluno = {
+    "nome": "Ana",
+    "idade": 20,
+    "notas": [8.5, 7.0, 9.2]
+}
+
+print(aluno["nome"])
+aluno["curso"] = "Python"
+print(aluno)
+</code></pre>
+        </div>
+
+        <h3>Principais métodos</h3>
+        <ul class="list dotted">
+          <li><code>keys()</code> → retorna as chaves</li>
+          <li><code>values()</code> → retorna os valores</li>
+          <li><code>items()</code> → retorna pares (chave, valor)</li>
+          <li><code>get(chave, valor_padrão)</code> → busca segura</li>
+          <li><code>pop(chave)</code> → remove um item</li>
+        </ul>
+
+        <div class="codeblock mt-md" data-lang="python">
+          <div class="codeblock-header"><span>Iterando sobre dicionário</span></div>
+          <pre><code>for chave, valor in aluno.items():
+    print(chave, "→", valor)</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Conjuntos -->
+    <section class="card mt-xl">
+      <div class="card-header">
+        <h2 class="card-title">Conjuntos (<code>set</code>)</h2>
+      </div>
+      <div class="card-content">
+        <p>
+          Conjuntos são coleções não ordenadas e <strong>sem elementos duplicados</strong>. São úteis para operações matemáticas entre grupos de dados.
+        </p>
+
+        <div class="codeblock" data-lang="python">
+          <div class="codeblock-header"><span>Exemplo</span></div>
+          <pre><code>alunos_a = {"Ana", "Bruno", "Clara"}
+alunos_b = {"Bruno", "Diego", "Elisa"}
+
+# União e interseção
+print(alunos_a | alunos_b)  # união
+print(alunos_a & alunos_b)  # interseção
+print(alunos_a - alunos_b)  # diferença
+</code></pre>
+        </div>
+
+        <h3>Principais métodos</h3>
+        <ul class="list dotted">
+          <li><code>add()</code> → adiciona elemento</li>
+          <li><code>remove()</code> / <code>discard()</code> → remove</li>
+          <li><code>union()</code> → une dois conjuntos</li>
+          <li><code>intersection()</code> → retorna elementos comuns</li>
+          <li><code>difference()</code> → retorna elementos exclusivos</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Exercícios -->
+    <section class="card mt-xl">
+      <div class="card-header">
+        <h2 class="card-title">Exercícios</h2>
+      </div>
+      <div class="card-content">
+        <h3>Dicionários</h3>
+        <ol class="list ordered">
+          <li><strong>Cadastro simples</strong> — Crie um dicionário com nome, idade e cidade. Exiba os dados formatados.</li>
+          <li><strong>Notas de alunos</strong> — Guarde nomes e médias em um dicionário e mostre quem foi aprovado (≥7).</li>
+          <li><strong>Conversor de moedas</strong> — Armazene cotações (ex: dólar, euro, libra) e converta um valor digitado.</li>
+          <li><strong>Contagem de letras</strong> — Conte quantas vezes cada letra aparece em uma palavra digitada.</li>
+          <li><strong>Agenda telefônica</strong> — Armazene nomes e telefones em um dicionário e permita consultar pelo nome.</li>
+        </ol>
+
+        <h3>Conjuntos (Sets)</h3>
+        <ol class="list ordered">
+          <li><strong>Alunos em cursos</strong> — Crie dois conjuntos de nomes e mostre quem está em ambos os cursos.</li>
+          <li><strong>Números únicos</strong> — Peça 10 números e mostre apenas os valores distintos.</li>
+          <li><strong>Vogais na frase</strong> — Leia uma frase e mostre as vogais encontradas (sem repetição).</li>
+          <li><strong>Comparação de conjuntos</strong> — Crie dois conjuntos de números e mostre união, interseção e diferença.</li>
+          <li><strong>Cadastro sem duplicatas</strong> — Peça nomes até “fim” e armazene num conjunto, impedindo repetições.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="mt-xl">
+      <div class="callout neutral">
+        <strong>Dica:</strong> Dicionários e conjuntos são estruturas essenciais para manipular dados reais — listas telefônicas, registros, grupos, resultados de pesquisa, etc.
+      </div>
+    </section>
+  </main>
+
+  <div class="reading-progress"><span></span></div>
+  <script src="../../script.js"></script>
+</body>
+</html>
