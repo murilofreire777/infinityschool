@@ -1,0 +1,263 @@
+<!-- ================================
+Arquivo: aula03.html
+Curso: Python
+Aula 03 — Revisão (Listas e Dicionários)
+================================ -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Python — Aula 03: Revisão (Listas e Dicionários)</title>
+  <link rel="stylesheet" href="../../styles.css" />
+</head>
+<body class="theme-auto course-python">
+  <header class="topbar">
+    <div class="container row between center-gap">
+      <div class="brand">
+        <span class="logo">🐍</span>
+        <strong>Python</strong>
+        <span class="muted">Aula 03 — Revisão (Listas e Dicionários)</span>
+      </div>
+      <nav class="actions row gap-sm">
+        <button class="btn btn-ghost" id="btnToggleTheme">🌗</button>
+        <button class="btn btn-ghost" id="btnIncreaseFont">A+</button>
+        <button class="btn btn-ghost" id="btnDecreaseFont">A−</button>
+        <button class="btn" id="btnPrint">🖨️ PDF</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mt-xl">
+    <!-- Abertura -->
+    <section class="card">
+      <div class="card-header">
+        <h1 class="card-title">Revisão — Listas e Dicionários</h1>
+      </div>
+      <div class="card-content">
+        <p class="lead">Prática focada em manipulação de <strong>listas</strong> e <strong>dicionários</strong> em Python (sem bibliotecas externas).</p>
+        <ul class="list check">
+          <li>Consolidar domínio de operações comuns (busca, filtro, agregação, transformação).</li>
+          <li>Trabalhar com dados aninhados (listas de dicionários com listas/dicionários internos).</li>
+          <li>Produzir respostas utilizando apenas Python padrão.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Questões de Listas -->
+    <section class="card mt-xl">
+      <div class="card-header">
+        <h2 class="card-title">Parte 1 — Listas (4 questões)</h2>
+      </div>
+      <div class="card-content">
+        <ol class="list ordered">
+          <li>
+            <strong>Filtragem básica</strong> — Dada a lista <code>nums = [3, 10, 7, 12, 18, 1, 5]</code>, gere uma nova lista apenas com os números pares.
+          </li>
+          <li>
+            <strong>Transformação</strong> — Com a lista <code>precos = [10.0, 15.5, 8.9, 21.0]</code>, aplique 10% de acréscimo em cada valor e crie uma lista atualizada (arredonde em 2 casas).
+          </li>
+          <li>
+            <strong>Busca/contagem</strong> — Em <code>palavras = ["python","dados","python","logica","python","ia"]</code>, conte quantas vezes a palavra <code>"python"</code> aparece e liste os índices onde ela ocorre.
+          </li>
+          <li>
+            <strong>Ordenação composta</strong> — Dada a lista de tuplas <code>alunos = [("Ana",8.4),("João",7.2),("Lia",9.1),("Rui",7.2)]</code>, retorne a lista ordenada por nota decrescente.
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Questões de Dicionários -->
+    <section class="card mt-xl">
+      <div class="card-header">
+        <h2 class="card-title">Parte 2 — Dicionários (4 questões)</h2>
+      </div>
+      <div class="card-content">
+        <ol class="list ordered">
+          <li>
+            <strong>Extração de chaves/valores</strong> — Dado <code>produto = {"id":101,"nome":"Teclado","preco":120.0,"estoque":35}</code>, imprima uma frase: <em>“Teclado (id 101) — R$120.00 — Estoque: 35”</em>.
+          </li>
+          <li>
+            <strong>Agrupamento simples</strong> — Com <code>vendas = [{"categoria":"A","valor":100},{"categoria":"B","valor":50},{"categoria":"A","valor":30}]</code>, calcule o total vendido por <em>categoria</em>, produzindo: <code>{"A":130,"B":50}</code>.
+          </li>
+          <li>
+            <strong>Inversão chave→valor</strong> — Dado <code>mapeamento = {"br":"Brasil","us":"Estados Unidos","fr":"França"}</code>, crie o dicionário invertido <code>{"Brasil":"br",...}</code> (não use dict comprehension ainda).
+          </li>
+          <li>
+            <strong>Junção/atualização</strong> — Dadas duas parciais:
+            <code>a = {"ana":8.0,"joao":6.5}</code> e <code>b = {"joao":7.2,"lia":9.0}</code>,
+            una as informações em um novo dicionário com a <em>maior</em> nota conhecida por aluno.
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Projeto: Grade Acadêmica -->
+    <section class="card mt-xl">
+      <div class="card-header">
+        <h2 class="card-title">Parte 3 — Projeto (Listas + Dicionários): Grade Acadêmica de Tecnologia</h2>
+      </div>
+      <div class="card-content">
+        <p>Você receberá um <strong>dataset</strong> (lista de dicionários) representando uma grade de cursos de tecnologia. Use <strong>apenas Python puro</strong> para responder às questões e completar dados faltantes. Não use Pandas.</p>
+
+        <div class="callout tip">
+          <strong>Dica:</strong> Trabalhe com uma <em>cópia</em> do dataset quando for alterar valores. Use estruturas como <code>set()</code> para unicidade, e funções utilitárias (<code>sum</code>, <code>max</code>, <code>sorted</code>) quando fizer sentido.
+        </div>
+
+        <div class="codeblock" data-lang="python">
+          <div class="codeblock-header"><span>Dataset: grade (exemplo)</span></div>
+<pre><code>grade = [
+    {
+        "curso": "Formação Python",
+        "coordenador": "Maria Silva",
+        "disciplinas": [
+            {
+                "codigo": "PY101",
+                "nome": "Fundamentos de Python",
+                "carga_horaria": 40,
+                "professores": ["Carlos Souza", None],
+                "alunos": ["Ana Martins", "Bruno Silva", "Clara Nogueira", "Ana Martins"],
+                "conteudos": ["tipos", "variaveis", "listas", "tuplas"],
+                "pre_requisitos": []
+            },
+            {
+                "codigo": "PY201",
+                "nome": "Estruturas de Dados em Python",
+                "carga_horaria": 60,
+                "professores": [None],
+                "alunos": ["Diego Ramos", "Elisa Freitas", "Bruno Silva"],
+                "conteudos": ["dicionarios", "sets", "arquivos"],
+                "pre_requisitos": ["PY101"]
+            }
+        ],
+        "trilhas": {
+            "backend": ["PY101", "PY201"],
+            "dados": ["PY101"]
+        }
+    },
+    {
+        "curso": "Desenvolvimento Web",
+        "coordenador": "Rafael Lima",
+        "disciplinas": [
+            {
+                "codigo": "JS101",
+                "nome": "JavaScript para Web",
+                "carga_horaria": 50,
+                "professores": ["Carla Nunes"],
+                "alunos": ["Fábio Duarte", "Gabi Santos", "Ana Martins"],
+                "conteudos": ["js-basico", "dom", "fetch"],
+                "pre_requisitos": []
+            },
+            {
+                "codigo": "PY301",
+                "nome": "APIs com Python",
+                "carga_horaria": 70,
+                "professores": ["Carlos Souza"],
+                "alunos": ["Helena Carvalho", "Igor Mendes", "Clara Nogueira"],
+                "conteudos": ["flask", "rest", "json"],
+                "pre_requisitos": ["PY101", "PY201"]
+            }
+        ],
+        "trilhas": {
+            "fullstack": ["JS101", "PY301"]
+        }
+    },
+    {
+        "curso": "Ciência de Dados Aplicada",
+        "coordenador": "Luciana Castro",
+        "disciplinas": [
+            {
+                "codigo": "CD101",
+                "nome": "Introdução à Análise de Dados",
+                "carga_horaria": 45,
+                "professores": ["Paulo Henrique", "Luciana Castro"],
+                "alunos": ["Rita Oliveira", "Caio Ribeiro", "Marina Farias", "Bruno Silva"],
+                "conteudos": ["estatistica-basica", "python-dados", "visualizacao"],
+                "pre_requisitos": []
+            },
+            {
+                "codigo": "CD202",
+                "nome": "Modelagem de Dados",
+                "carga_horaria": 65,
+                "professores": [None],
+                "alunos": ["Rita Oliveira", "Igor Mendes", "Caio Ribeiro"],
+                "conteudos": ["modelos-relacionais", "sql-basico"],
+                "pre_requisitos": ["CD101"]
+            },
+            {
+                "codigo": "CD303",
+                "nome": "Machine Learning Aplicado",
+                "carga_horaria": 80,
+                "professores": ["Fernanda Lopes"],
+                "alunos": ["Marina Farias", "Helena Carvalho", "João Correia"],
+                "conteudos": ["supervisionado", "nao-supervisionado", "avaliacao-modelos"],
+                "pre_requisitos": ["CD202"]
+            }
+        ],
+        "trilhas": {
+            "analise": ["CD101", "CD202"],
+            "ml": ["CD202", "CD303"]
+        }
+    }
+]
+</code></pre>
+        </div>
+
+        <h3>Tarefas</h3>
+        <ol class="list ordered">
+          <li>
+            <strong>Completar dados</strong> — Substitua todos os nomes de professores ausentes (<code>None</code>) por <code>"A Definir"</code>, sem modificar o restante dos elementos.
+          </li>
+          <li>
+            <strong>Disciplina com maior carga</strong> — Encontre a(s) disciplina(s) com maior <code>carga_horaria</code> no conjunto todo e imprima <em>código</em>, <em>nome</em> e <em>carga</em>.
+          </li>
+          <li>
+            <strong>Listas únicas</strong> — Extraia:
+            <ul class="list dotted">
+              <li>a lista de <strong>professores</strong> (sem duplicados), ordenada alfabeticamente;</li>
+              <li>a lista de <strong>alunos</strong> (sem duplicados), ordenada alfabeticamente.</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Carga por curso</strong> — Para cada <code>curso</code>, calcule a <em>carga horária total</em> (soma das cargas de suas disciplinas).
+          </li>
+          <li>
+            <strong>Mapa disciplina → alunos</strong> — Construa um dicionário em que a <em>chave</em> é o <code>codigo</code> da disciplina e o <em>valor</em> é uma lista de alunos <em>sem repetição</em>, ordenada.
+          </li>
+          <li>
+            <strong>Pré-requisitos válidos</strong> — Verifique se cada código listado em <code>pre_requisitos</code> existe em alguma disciplina da grade. Liste os códigos inexistentes (se houver).
+          </li>
+          <li>
+            <strong>Trilhas resolvidas</strong> — Para cada <code>trilha</code> de cada curso, gere uma lista de objetos com <code>{"codigo","nome","carga_horaria"}</code> referente a cada disciplina da trilha. (Mantenha a ordem original da trilha.)
+          </li>
+          <li>
+            <strong>Alunos por curso</strong> — Para cada <code>curso</code>, gere um conjunto (ou lista única ordenada) com todos os seus alunos (sem duplicados).
+          </li>
+          <li>
+            <strong>Relatório geral</strong> — Monte um pequeno relatório de texto (strings concatenadas) com:
+            <ul class="list dotted">
+              <li>Quantidade total de cursos, disciplinas, professores únicos e alunos únicos;</li>
+              <li>Nome(s) da(s) disciplina(s) de maior carga;</li>
+              <li>Carga total por curso.</li>
+            </ul>
+          </li>
+        </ol>
+
+        <div class="callout warn mt-md">
+          <strong>Regras:</strong> Não use bibliotecas externas (sem Pandas). Evite mutar a estrutura original onde não for necessário: se precisar alterar campos, faça uma cópia profunda.
+        </div>
+      </div>
+    </section>
+
+    <!-- Encerramento -->
+    <section class="mt-xl">
+      <div class="callout neutral">
+        <strong>Dica:</strong> Construa estruturas auxiliares pequenas (ex.: <code>professores_unicos = []</code>, <code>alunos_unicos = []</code>) para reutilizar lógica e facilitar os testes.
+      </div>
+    </section>
+  </main>
+
+  <div class="reading-progress"><span></span></div>
+  <script src="../../script.js"></script>
+</body>
+</html>
